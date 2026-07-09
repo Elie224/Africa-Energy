@@ -26,7 +26,7 @@ const Legal = () => {
 
       <section className="section-padding" style={{ backgroundColor: '#FAFAFA' }}>
         <div className="container" style={{ maxWidth: 920 }}>
-          <Section num="1" title="Ã‰dition du site">
+          <Section num="1" title="Àdition du site">
             <p>
               Conformément à l'article 6 de la loi nÂ° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique,
               il est précisé aux utilisateurs du site l'identité des différents intervenants dans le cadre de sa réalisation
@@ -52,7 +52,7 @@ const Legal = () => {
             </p>
 
             <p><strong style={{ color: 'var(--ae-blue-dark)' }}>Hébergeur :</strong><br />
-              Ã€ compléter â€“ nom de l'hébergeur, adresse et téléphone.
+              À compléter â€“ nom de l'hébergeur, adresse et téléphone.
             </p>
 
             <p><strong style={{ color: 'var(--ae-blue-dark)' }}>Délégué à la protection des données :</strong><br />

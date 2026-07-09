@@ -9,7 +9,7 @@ const Direction = () => {
       <Seo title="Direction" description="L equipe dirigeante d Africa Energy SAU : Administrateur General, Commissaires aux comptes, gouvernance." />
       <section className="dg-hero">
         <div className="container text-center position-relative" style={{ zIndex: 1 }}>
-          <h1 className="text-white display-4 fw-bold">Direction & Ã‰quipe</h1>
+          <h1 className="text-white display-4 fw-bold">Direction & Àquipe</h1>
           <p className="mt-3" style={{ fontSize: '1.2rem', opacity: 0.95 }}>
             Les hommes et les femmes qui font Africa Energy SAU
           </p>
@@ -123,7 +123,7 @@ const Direction = () => {
               <div className="org-branch">
                 <div className="org-node">
                   <div className="role">Secrétariat Général</div>
-                  <div className="name">Zoumana TRAORÃ‰</div>
+                  <div className="name">Zoumana TRAORÀ</div>
                   <p style={{ fontSize: '0.78rem', color: '#666', margin: '0 0 8px 0' }}>Secrétaire Général</p>
                   <div className="contact-block">
                     <a href="tel:+224628953007"><i className="bi bi-telephone-fill"></i> 628 953 007</a>
