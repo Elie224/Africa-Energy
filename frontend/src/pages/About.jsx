@@ -52,7 +52,7 @@ const About = () => {
                     <i className="bi bi-heart fs-1 mb-3" style={{ color: 'var(--ae-green)' }}></i>
                     <h5>Nos valeurs</h5>
                     <p className="small mb-0">
-                      <strong>Intégrité Â· Excellence Â· Fiabilité Â· Responsabilité Â· Engagement national</strong>
+                      <strong>Intégrité · Excellence · Fiabilité · Responsabilité · Engagement national</strong>
                     </p>
                   </div>
                 </div>

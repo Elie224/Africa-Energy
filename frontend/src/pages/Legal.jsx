@@ -28,7 +28,7 @@ const Legal = () => {
         <div className="container" style={{ maxWidth: 920 }}>
           <Section num="1" title="Àdition du site">
             <p>
-              Conformément à l'article 6 de la loi nÂ° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique,
+              Conformément à l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique,
               il est précisé aux utilisateurs du site l'identité des différents intervenants dans le cadre de sa réalisation
               et de son suivi.
             </p>
@@ -36,7 +36,7 @@ const Legal = () => {
             <p><strong style={{ color: 'var(--ae-blue-dark)' }}>Propriétaire du site :</strong><br />
               AFRICA ENERGY S.A.U<br />
               Société Anonyme Unipersonnelle avec Administrateur Général<br />
-              RCCM NÂ° GN.TCC.2025.B.18185 â€“ Formalité NÂ° GN.TCC.2025.20590<br />
+              RCCM N° GN.TCC.2025.B.18185 â€“ Formalité N° GN.TCC.2025.20590<br />
               Siège social : Quartier Almamya, Commune de Kaloum, Conakry, République de Guinée<br />
               Contact : <a href="tel:+224612368058">+224 612 368 058</a> â€“ <a href="mailto:africaenergysau@gmail.com">africaenergysau@gmail.com</a>
             </p>
@@ -123,7 +123,7 @@ const Legal = () => {
             </p>
             <p>
               La navigation sur le site est susceptible de provoquer l'installation de cookie(s) sur l'ordinateur de
-              l'utilisateur. Un Â«â€¯cookieâ€¯Â» est un fichier de petite taille qui enregistre des informations relatives à
+              l'utilisateur. Un «â€¯cookieâ€¯» est un fichier de petite taille qui enregistre des informations relatives à
               la navigation d'un utilisateur sur un site. Les données ainsi obtenues permettent notamment d'obtenir des
               mesures de fréquentation.
             </p>

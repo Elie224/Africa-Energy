@@ -105,8 +105,8 @@ const Home = () => {
             <div className="col-lg-3 col-md-6">
               <div className="ae-card">
                 <div className="icon"><i className="bi bi-bar-chart-line"></i></div>
-                <h4>Gestion de stocks$1</h4>
-                <p>Traçabilité complète et gestion rigoureuse de vos stocks$1 de carburants.</p>
+                <h4>Gestion de stocks</h4>
+                <p>Traçabilité complète et gestion rigoureuse de vos stocks de carburants.</p>
               </div>
             </div>
           </div>
@@ -231,6 +231,7 @@ const Home = () => {
 }
 
 export default Home
+
 
 
 
