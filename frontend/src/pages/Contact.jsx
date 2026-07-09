@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Seo from '../components/Seo.jsx'
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -47,11 +48,12 @@ const Contact = () => {
 
   return (
     <>
+      <Seo title="Contact et Devis" description="Contactez Africa Energy SAU a Conakry. Demandez un devis pour vos besoins en hydrocarbures : gasoil, lubrifiants, GPL, livraison." />
       <section className="ae-hero" style={{ padding: '80px 0' }}>
         <div className="container text-center">
           <h1>Contactez-nous</h1>
           <p className="mt-3" style={{ fontSize: '1.2rem', opacity: 0.95 }}>
-            Notre équipe vous répond sous 24 h
+            Notre Ã©quipe vous rÃ©pond sous 24 h
           </p>
         </div>
       </section>
@@ -60,7 +62,7 @@ const Contact = () => {
         <div className="container">
           <div className="row g-5">
             <div className="col-lg-5">
-              <h3 className="mb-4">Nos coordonnées</h3>
+              <h3 className="mb-4">Nos coordonnÃ©es</h3>
 
               <div className="d-flex gap-3 mb-4">
                 <div style={{ width: 50, height: 50, background: 'var(--ae-orange)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: 22 }}>
@@ -68,7 +70,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h6 className="mb-1">Adresse</h6>
-                  <p className="text-muted mb-2">Dixinn Terrasse, Conakry, Guinée</p>
+                  <p className="text-muted mb-2">Dixinn Terrasse, Conakry, GuinÃ©e</p>
                     <a href="https://www.google.com/maps/search/?api=1&query=Dixinn%20Terrasse%2C%20Conakry%2C%20Guinee" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--ae-orange)', textDecoration: 'none' }}><i className="bi bi-geo-alt-fill me-1"></i>Voir sur Google Maps <i className="bi bi-box-arrow-up-right ms-1"></i></a>
                 </div>
               </div>
@@ -78,7 +80,7 @@ const Contact = () => {
                   <i className="bi bi-telephone-fill"></i>
                 </div>
                 <div>
-                  <h6 className="mb-1">Téléphone</h6>
+                  <h6 className="mb-1">TÃ©lÃ©phone</h6>
                   <p className="text-muted mb-0">
                     <a href="tel:+224612368058" className="text-decoration-none text-muted">+224 612 368 058</a>
                   </p>
@@ -122,7 +124,7 @@ const Contact = () => {
                 {sent && (
                   <div className="alert alert-success">
                     <i className="bi bi-check-circle me-2"></i>
-                    Merci ! Votre demande a bien été envoyée. Nous vous recontactons sous 24 h.
+                    Merci ! Votre demande a bien Ã©tÃ© envoyÃ©e. Nous vous recontactons sous 24 h.
                   </div>
                 )}
 
@@ -146,19 +148,19 @@ const Contact = () => {
                       <input type="email" name="email" className="form-control" required value={form.email} onChange={handleChange} />
                     </div>
                     <div className="col-md-6">
-                      <label className="form-label">Téléphone *</label>
+                      <label className="form-label">TÃ©lÃ©phone *</label>
                       <input type="tel" name="telephone" className="form-control" required value={form.telephone} onChange={handleChange} />
                     </div>
                     <div className="col-12">
-                      <label className="form-label">Produit / Service souhaité</label>
+                      <label className="form-label">Produit / Service souhaitÃ©</label>
                       <select name="produit" className="form-select" value={form.produit} onChange={handleChange}>
-                        <option value="">Sélectionnez...</option>
+                        <option value="">SÃ©lectionnez...</option>
                         <option>Gasoil / Diesel</option>
                         <option>Essence Super</option>
-                        <option>Pétrole lampant</option>
+                        <option>PÃ©trole lampant</option>
                         <option>Fuel lourd (HFO)</option>
                         <option>Lubrifiants & huiles</option>
-                        <option>GPL & dérivés</option>
+                        <option>GPL & dÃ©rivÃ©s</option>
                         <option>Livraison rapide</option>
                         <option>Autre</option>
                       </select>
@@ -184,3 +186,7 @@ const Contact = () => {
 }
 
 export default Contact
+
+
+
+

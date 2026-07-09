@@ -1,14 +1,16 @@
 import React from 'react'
+import Seo from '../components/Seo.jsx'
 import { Link } from 'react-router-dom'
 
 const About = () => {
   return (
     <>
+      <Seo title="A propos" description="Decouvrez Africa Energy SAU : histoire, mission, valeurs, ancrage en Guinee et ambition panafricaine dans la distribution petroliere." />
       <section className="ae-hero" style={{ padding: '80px 0' }}>
         <div className="container text-center">
           <h1>Qui sommes-nous ?</h1>
           <p className="mt-3" style={{ fontSize: '1.2rem', opacity: 0.95 }}>
-            Une société guinéenne engagée pour l’énergie de l’Afrique
+            Une sociÃ©tÃ© guinÃ©enne engagÃ©e pour lâ€™Ã©nergie de lâ€™Afrique
           </p>
         </div>
       </section>
@@ -19,14 +21,14 @@ const About = () => {
             <div className="col-lg-6">
               <h2 className="mb-4">Africa Energy SAU</h2>
               <p className="lead">
-                Africa Energy SAU est une société guinéenne spécialisée dans la distribution
-                de produits pétroliers et dérivés. Implantée à Dixinn Terrasse, Conakry,
+                Africa Energy SAU est une sociÃ©tÃ© guinÃ©enne spÃ©cialisÃ©e dans la distribution
+                de produits pÃ©troliers et dÃ©rivÃ©s. ImplantÃ©e Ã  Dixinn Terrasse, Conakry,
                 nous servons les entreprises et particuliers depuis 2025.
               </p>
               <p>
-                Notre ambition est de faire d’Africa Energy un pilier incontournable du
-                secteur énergétique guinéen. Qualité, rigueur et éthique guident chacune
-                de nos opérations.
+                Notre ambition est de faire dâ€™Africa Energy un pilier incontournable du
+                secteur Ã©nergÃ©tique guinÃ©en. QualitÃ©, rigueur et Ã©thique guident chacune
+                de nos opÃ©rations.
               </p>
             </div>
             <div className="col-lg-6">
@@ -35,14 +37,14 @@ const About = () => {
                   <div className="ae-card text-center">
                     <i className="bi bi-eye fs-1 mb-3" style={{ color: 'var(--ae-orange)' }}></i>
                     <h5>Notre vision</h5>
-                    <p className="small">Devenir l’opérateur pétrolier de référence en Guinée et en Afrique de l’Ouest.</p>
+                    <p className="small">Devenir lâ€™opÃ©rateur pÃ©trolier de rÃ©fÃ©rence en GuinÃ©e et en Afrique de lâ€™Ouest.</p>
                   </div>
                 </div>
                 <div className="col-6">
                   <div className="ae-card text-center">
                     <i className="bi bi-bullseye fs-1 mb-3" style={{ color: 'var(--ae-blue)' }}></i>
                     <h5>Notre mission</h5>
-                    <p className="small">Assurer un approvisionnement régulier, sécurisé et de qualité sur tout le territoire.</p>
+                    <p className="small">Assurer un approvisionnement rÃ©gulier, sÃ©curisÃ© et de qualitÃ© sur tout le territoire.</p>
                   </div>
                 </div>
                 <div className="col-12">
@@ -50,7 +52,7 @@ const About = () => {
                     <i className="bi bi-heart fs-1 mb-3" style={{ color: 'var(--ae-green)' }}></i>
                     <h5>Nos valeurs</h5>
                     <p className="small mb-0">
-                      <strong>Intégrité · Excellence · Fiabilité · Responsabilité · Engagement national</strong>
+                      <strong>IntÃ©gritÃ© Â· Excellence Â· FiabilitÃ© Â· ResponsabilitÃ© Â· Engagement national</strong>
                     </p>
                   </div>
                 </div>
@@ -72,3 +74,7 @@ const About = () => {
 }
 
 export default About
+
+
+
+

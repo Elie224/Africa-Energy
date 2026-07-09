@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Products & Services",
+    "engagements": "Commitments",
+    "news": "News",
+    "careers": "Careers",
+    "direction": "Leadership",
+    "contact": "Request a quote",
+    "language": "Language"
+  },
+  "footer": {
+    "tagline": "The energy that moves Africa forward",
+    "company": "Company",
+    "about": "About",
+    "services": "Products & Services",
+    "engagements": "Commitments",
+    "news": "News",
+    "careers": "Careers",
+    "contact": "Contact",
+    "legal": "Legal notice",
+    "address": "Dixinn Terrasse, Conakry, Guinea",
+    "phone": "+224 612 36 80 58",
+    "email": "africaenergysau@gmail.com",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "search": "Search",
+    "close": "Close",
+    "seeMore": "See more",
+    "readMore": "Read more",
+    "send": "Send",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "required": "Required",
+    "optional": "Optional"
+  },
+  "home": {
+    "heroTitle": "The energy that moves Africa forward",
+    "heroSubtitle": "Distribution of petroleum products and derivatives in Guinea",
+    "ctaQuote": "Request a quote",
+    "ctaContact": "Contact us"
+  }
+}

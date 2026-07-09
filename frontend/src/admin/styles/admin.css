@@ -335,3 +335,88 @@
   .ae-admin-sidebar { display: none; }
   .ae-admin-content { padding: 18px; }
 }
+
+/* Rich editor (WYSIWYG) */
+.ae-rich {
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  background: #fff;
+}
+.ae-rich:focus-within {
+  border-color: #1e5bb8;
+  box-shadow: 0 0 0 3px rgba(30, 91, 184, 0.15);
+}
+.ae-rich-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f8f9fb;
+  border-radius: 8px 8px 0 0;
+}
+.ae-rich-btn {
+  border: 1px solid transparent;
+  background: transparent;
+  color: #0b2a5b;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+}
+.ae-rich-btn:hover { background: #e9ecef; }
+.ae-rich-btn:focus-visible { outline: 2px solid #f39200; outline-offset: 1px; }
+.ae-rich-sep {
+  width: 1px;
+  background: #e5e7eb;
+  margin: 4px 4px;
+}
+.ae-rich-area {
+  border: 0;
+  border-radius: 0 0 8px 8px;
+  min-height: 220px;
+  padding: 12px 14px;
+  background: #fff;
+  outline: none;
+  box-shadow: none;
+}
+.ae-rich-area:focus { box-shadow: none; }
+.ae-rich-area:empty::before {
+  content: attr(data-placeholder);
+  color: #9ca3af;
+  pointer-events: none;
+}
+.ae-rich-area h2 { font-size: 1.4rem; margin: 0.5em 0; color: #0b2a5b; }
+.ae-rich-area h3 { font-size: 1.2rem; margin: 0.5em 0; color: #0b2a5b; }
+.ae-rich-area blockquote {
+  border-left: 4px solid #f39200;
+  margin: 0.6em 0;
+  padding: 0.4em 1em;
+  color: #4b5563;
+  background: #f8f9fb;
+}
+.ae-rich-area img { max-width: 100%; height: auto; border-radius: 6px; margin: 0.5em 0; }
+.ae-rich-area a { color: #1e5bb8; text-decoration: underline; }
+.ae-rich-area ul, .ae-rich-area ol { padding-left: 1.5em; }
+
+/* SafeHtml rendering (public side) */
+.ae-prose h2 { font-size: 1.5rem; color: #0b2a5b; margin: 1em 0 0.4em; font-weight: 700; }
+.ae-prose h3 { font-size: 1.2rem; color: #0b2a5b; margin: 0.9em 0 0.3em; font-weight: 700; }
+.ae-prose p { margin: 0.6em 0; line-height: 1.7; }
+.ae-prose ul, .ae-prose ol { padding-left: 1.4em; line-height: 1.7; }
+.ae-prose blockquote {
+  border-left: 4px solid #f39200;
+  margin: 1em 0;
+  padding: 0.5em 1.2em;
+  background: #f8f9fb;
+  color: #4b5563;
+  border-radius: 0 8px 8px 0;
+}
+.ae-prose img { max-width: 100%; height: auto; border-radius: 8px; margin: 0.8em 0; }
+.ae-prose a { color: #1e5bb8; text-decoration: underline; }
+.ae-prose hr { border: 0; border-top: 1px solid #e5e7eb; margin: 1.5em 0; }

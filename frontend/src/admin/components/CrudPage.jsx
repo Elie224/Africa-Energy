@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api } from '../lib/api.js'
-
+import RichEditor from './RichEditor.jsx'
 const Toast = ({ msg, kind, onClose }) => (
   <div className={`ae-toast ${kind || ''}`} onClick={onClose}>
     <strong>{kind === 'error' ? 'Erreur' : 'OK'}</strong>
@@ -104,6 +104,8 @@ const CrudPage = ({ endpoint, columns, fields, canWrite = true, transform, defau
                       onChange={(e) => setEditing({ ...editing, [f.name]: e.target.checked ? 1 : 0 })}
                     />
                   </div>
+                ) : f.type === 'richtext' ? (
+                  <RichEditor value={editing[f.name] || ''} onChange={(html) => setEditing({ ...editing, [f.name]: html })} placeholder={f.placeholder || 'Saisissez votre contenu...'} />
                 ) : (
                   <input
                     type={f.type || 'text'}
@@ -169,3 +171,5 @@ const CrudPage = ({ endpoint, columns, fields, canWrite = true, transform, defau
 }
 
 export default CrudPage
+
+

@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Produits & Services",
+    "engagements": "Engagements",
+    "news": "Actualités",
+    "careers": "Carrières",
+    "direction": "Direction",
+    "contact": "Demander un devis",
+    "language": "Langue"
+  },
+  "footer": {
+    "tagline": "L'énergie qui fait avancer l'Afrique",
+    "company": "L'entreprise",
+    "about": "À propos",
+    "services": "Produits & Services",
+    "engagements": "Engagements",
+    "news": "Actualités",
+    "careers": "Carrières",
+    "contact": "Contact",
+    "legal": "Mentions légales",
+    "address": "Dixinn Terrasse, Conakry, Guinée",
+    "phone": "+224 612 36 80 58",
+    "email": "africaenergysau@gmail.com",
+    "rights": "Tous droits réservés."
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "retry": "Reessayer",
+    "search": "Rechercher",
+    "close": "Fermer",
+    "seeMore": "Voir plus",
+    "readMore": "Lire la suite",
+    "send": "Envoyer",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Creer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Precedent",
+    "required": "Requis",
+    "optional": "Optionnel"
+  },
+  "home": {
+    "heroTitle": "L'énergie qui fait avancer l'Afrique",
+    "heroSubtitle": "Distribution de produits petroliers et derives en Guinee",
+    "ctaQuote": "Demander un devis",
+    "ctaContact": "Nous contacter"
+  }
+}
