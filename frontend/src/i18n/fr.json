@@ -1,11 +1,11 @@
 ﻿{
     "nav":  {
                 "home":  "Accueil",
-                "about":  "Ã€ propos",
+                "about":  "A propos",
                 "services":  "Produits \u0026 Services",
                 "engagements":  "Engagements",
-                "news":  "ActualitÃ©s",
-                "careers":  "CarriÃ¨res",
+                "news":  "Actualites",
+                "careers":  "Carrieres",
                 "direction":  "Direction",
                 "contact":  "Demander un devis",
                 "language":  "Langue"
@@ -13,11 +13,11 @@
     "footer":  {
                    "tagline":  "L\u0027Ã©nergie qui fait avancer l\u0027Afrique",
                    "company":  "L\u0027entreprise",
-                   "about":  "Ã€ propos",
+                   "about":  "A propos",
                    "services":  "Produits \u0026 Services",
                    "engagements":  "Engagements",
-                   "news":  "ActualitÃ©s",
-                   "careers":  "CarriÃ¨res",
+                   "news":  "Actualites",
+                   "careers":  "Carrieres",
                    "contact":  "Contact",
                    "legal":  "Mentions lÃ©gales",
                    "address":  "Dixinn Terrasse, Conakry, GuinÃ©e",
