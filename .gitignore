@@ -1,0 +1,34 @@
+# Dependances
+node_modules/
+
+# Build
+dist/
+frontend/dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Fichiers temporaires
+*.tmp
+*.bak
+
+# Environnement
+.env
+.env.local
+.env.*.local
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Codex (tooling)
+.codex/

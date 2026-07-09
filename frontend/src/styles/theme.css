@@ -1,0 +1,305 @@
+/* ============================================
+   AFRICA ENERGY SAU - Charte graphique
+   ============================================ */
+
+:root {
+  --ae-blue-dark: #0B2A5B;
+  --ae-blue: #1E5BB8;
+  --ae-orange: #F39200;
+  --ae-green: #2E7D32;
+  --ae-gold: #D4A017;
+  --ae-light: #F5F7FA;
+  --ae-gray: #6B7280;
+  --ae-white: #ffffff;
+  --ae-dark: #0a0a0a;
+
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ae-dark);
+  line-height: 1.6;
+  background-color: var(--ae-white);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--ae-blue-dark);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Boutons personnalises */
+.btn-ae-primary {
+  background-color: var(--ae-orange);
+  border: 2px solid var(--ae-orange);
+  color: var(--ae-white);
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-ae-primary:hover {
+  background-color: #d77e00;
+  border-color: #d77e00;
+  color: var(--ae-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(243, 146, 0, 0.3);
+}
+
+.btn-ae-outline {
+  background-color: transparent;
+  border: 2px solid var(--ae-blue-dark);
+  color: var(--ae-blue-dark);
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}
+
+.btn-ae-outline:hover {
+  background-color: var(--ae-blue-dark);
+  color: var(--ae-white);
+}
+
+/* Sections */
+.section-padding {
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--ae-orange);
+  margin: 15px auto 0;
+}
+
+.section-title p {
+  color: var(--ae-gray);
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.ae-navbar {
+  background-color: var(--ae-white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.ae-navbar .navbar-brand img {
+  height: 60px;
+}
+
+.ae-navbar .nav-link {
+  color: var(--ae-blue-dark) !important;
+  font-weight: 600;
+  margin: 0 10px;
+  font-size: 15px;
+  position: relative;
+}
+
+.ae-navbar .nav-link:hover {
+  color: var(--ae-orange) !important;
+}
+
+.ae-navbar .nav-link.active {
+  color: var(--ae-orange) !important;
+}
+
+/* Hero */
+.ae-hero {
+  background: linear-gradient(135deg, var(--ae-blue-dark) 0%, var(--ae-blue) 100%);
+  color: var(--ae-white);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.ae-hero h1 {
+  color: var(--ae-white);
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.ae-hero h1 .highlight {
+  color: var(--ae-orange);
+}
+
+.ae-hero p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+
+.ae-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(243, 146, 0, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* Cards */
+.ae-card {
+  background: var(--ae-white);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  border-top: 4px solid var(--ae-orange);
+}
+
+.ae-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.ae-card .icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--ae-orange), var(--ae-gold));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ae-white);
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.ae-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.ae-card p {
+  color: var(--ae-gray);
+  font-size: 0.95rem;
+}
+
+/* Stats */
+.ae-stats {
+  background: var(--ae-blue-dark);
+  color: var(--ae-white);
+  padding: 60px 0;
+}
+
+.ae-stats .stat-item {
+  text-align: center;
+  padding: 20px;
+}
+
+.ae-stats .stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--ae-orange);
+  font-family: var(--font-heading);
+}
+
+.ae-stats .stat-label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* Footer */
+.ae-footer {
+  background: #051e44;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 60px 0 30px;
+}
+
+.ae-footer h5 {
+  color: var(--ae-white);
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.ae-footer a {
+  color: rgba(255, 255, 255, 0.75);
+  display: block;
+  padding: 6px 0;
+  font-size: 0.95rem;
+}
+
+.ae-footer a:hover {
+  color: var(--ae-orange);
+  padding-left: 5px;
+}
+
+.ae-footer .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 25px;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ae-hero h1 { font-size: 2.2rem; }
+  .ae-hero p { font-size: 1.05rem; }
+  .section-title h2 { font-size: 2rem; }
+  .section-padding { padding: 50px 0; }
+  .ae-stats .stat-number { font-size: 2.2rem; }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+}
