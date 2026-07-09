@@ -13,6 +13,8 @@ const I18nContext = createContext({
   available: SUPPORTED
 })
 
+// Detection initiale : on respecte localStorage si l''utilisateur a deja choisi,
+// sinon on essaie navigator.language, sinon defaut = fr (site corporate francophone).
 const detectInitial = () => {
   try {
     const saved = localStorage.getItem(STORAGE_KEY)

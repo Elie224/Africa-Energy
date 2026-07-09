@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Seo from '../components/Seo.jsx'
+import { useI18n } from '../i18n/I18nContext.jsx'
 
 const Careers = () => {
+  const { t } = useI18n()
   const [jobs, setJobs] = useState([])
 
   useEffect(() => {
@@ -27,7 +29,7 @@ const Careers = () => {
       <Seo title="Carrieres" description="Rejoignez Africa Energy SAU. Consultez nos offres d emploi et postulez en ligne dans le secteur petrolier guineen." />
       <section className='ae-hero' style={{ padding: '80px 0' }}>
         <div className='container text-center'>
-          <h1>Carrières</h1>
+          <h1>{t('pages.careers.heroTitle', 'Pourquoi nous rejoindre ?')}</h1>
           <p className='mt-3' style={{ fontSize: '1.2rem', opacity: 0.95 }}>
             Rejoignez l’aventure Africa Energy SAU
           </p>

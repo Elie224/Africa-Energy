@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import Seo from '../components/Seo.jsx'
+import { useI18n } from '../i18n/I18nContext.jsx'
 
 const Contact = () => {
+  const { t } = useI18n()
   const [form, setForm] = useState({
     nom: '', email: '', telephone: '', entreprise: '', produit: '', message: '', website: ''
   })
@@ -51,7 +53,7 @@ const Contact = () => {
       <Seo title="Contact et Devis" description="Contactez Africa Energy SAU a Conakry. Demandez un devis pour vos besoins en hydrocarbures : gasoil, lubrifiants, GPL, livraison." />
       <section className="ae-hero" style={{ padding: '80px 0' }}>
         <div className="container text-center">
-          <h1>Contactez-nous</h1>
+          <h1>{t('pages.contact.heroTitle', 'Contactez-nous')}</h1>
           <p className="mt-3" style={{ fontSize: '1.2rem', opacity: 0.95 }}>
             Notre équipe vous répond sous 24 h
           </p>

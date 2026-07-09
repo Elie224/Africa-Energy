@@ -1,8 +1,10 @@
 import React from 'react'
 import Seo from '../components/Seo.jsx'
+import { useI18n } from '../i18n/I18nContext.jsx'
 import { Link } from 'react-router-dom'
 
 const Engagements = () => {
+  const { t } = useI18n()
   const engagements = [
     { icon: 'bi-shield-fill-check', title: 'Conformité réglementaire', desc: 'Respect strict des normes OHADA et réglementations en vigueur en Guinée.', color: 'var(--ae-blue)' },
     { icon: 'bi-graph-up-arrow', title: 'Traçabilité complète', desc: 'Chaque produit est traçable de la source jusqu’à la livraison finale.', color: 'var(--ae-orange)' },
@@ -17,7 +19,7 @@ const Engagements = () => {
       <Seo title="Engagements et Conformite" description="Engagements QHSE, conformite SONAP, tracabilite OHADA, securite des operations petrolieres en Guinee." />
       <section className="ae-hero" style={{ padding: '80px 0' }}>
         <div className="container text-center">
-          <h1>Nos engagements</h1>
+          <h1>{t('pages.engagements.heroTitle', 'Qualite, securite et conformite')}</h1>
           <p className="mt-3" style={{ fontSize: '1.2rem', opacity: 0.95 }}>
             Qualité, sécurité et conformité au coeur de notre démarche
           </p>

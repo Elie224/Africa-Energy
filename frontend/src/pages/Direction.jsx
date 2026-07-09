@@ -1,15 +1,17 @@
 import React from 'react'
 import Seo from '../components/Seo.jsx'
+import { useI18n } from '../i18n/I18nContext.jsx'
 import { Link } from 'react-router-dom'
 import dgPhoto from '../assets/images/DG.webp'
 
 const Direction = () => {
+  const { t } = useI18n()
   return (
     <>
       <Seo title="Direction" description="L equipe dirigeante d Africa Energy SAU : Administrateur General, Commissaires aux comptes, gouvernance." />
       <section className="dg-hero">
         <div className="container text-center position-relative" style={{ zIndex: 1 }}>
-          <h1 className="text-white display-4 fw-bold">Direction & Àquipe</h1>
+          <h1 className="text-white display-4 fw-bold">{t('pages.direction.heroTitle', 'Direction')} & Équipe</h1>
           <p className="mt-3" style={{ fontSize: '1.2rem', opacity: 0.95 }}>
             Les hommes et les femmes qui font Africa Energy SAU
           </p>
