@@ -20,8 +20,39 @@ const securityHeaders = {
   ].join('; ')
 }
 
+// Force charset=utf-8 sur les reponses JS/CSS/HTML pour eviter les problemes
+// d'encodage cote navigateur (certains navigateurs sur Windows tombent sur
+// CP1252 si aucun charset n'est precise sur les scripts modules).
+const charsetPlugin = () => ({
+  name: 'force-utf8-charset',
+  configureServer(server) {
+    server.middlewares.use((_req, res, next) => {
+      const origSetHeader = res.setHeader.bind(res)
+      res.setHeader = function (name, value) {
+        if (typeof value === 'string' && /^text\//.test(value) && !/charset/i.test(value)) {
+          value = value + '; charset=utf-8'
+        }
+        return origSetHeader(name, value)
+      }
+      next()
+    })
+  },
+  configurePreviewServer(server) {
+    server.middlewares.use((_req, res, next) => {
+      const origSetHeader = res.setHeader.bind(res)
+      res.setHeader = function (name, value) {
+        if (typeof value === 'string' && /^text\//.test(value) && !/charset/i.test(value)) {
+          value = value + '; charset=utf-8'
+        }
+        return origSetHeader(name, value)
+      }
+      next()
+    })
+  }
+})
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), charsetPlugin()],
   server: {
     port: 5173,
     open: false,

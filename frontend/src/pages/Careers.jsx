@@ -6,7 +6,7 @@ const Careers = () => {
 
   useEffect(() => {
     // Recuperation des offres depuis lâ€™API (back-office)
-    // Pour lâ€™instant la liste est vide - lâ€™encadrÃ© apparait
+    // Pour lâ€™instant la liste est vide - lâ€™encadré apparait
     // Quand lâ€™admin publiera, fetch('/api/jobs') remplira cette liste
     const fetchJobs = async () => {
       try {
@@ -27,7 +27,7 @@ const Careers = () => {
       <Seo title="Carrieres" description="Rejoignez Africa Energy SAU. Consultez nos offres d emploi et postulez en ligne dans le secteur petrolier guineen." />
       <section className='ae-hero' style={{ padding: '80px 0' }}>
         <div className='container text-center'>
-          <h1>CarriÃ¨res</h1>
+          <h1>Carrières</h1>
           <p className='mt-3' style={{ fontSize: '1.2rem', opacity: 0.95 }}>
             Rejoignez lâ€™aventure Africa Energy SAU
           </p>
@@ -40,9 +40,9 @@ const Careers = () => {
             <div className='col-lg-8'>
               <h2>Pourquoi nous rejoindre ?</h2>
               <p className='lead text-muted'>
-                Africa Energy SAU, câ€™est une Ã©quipe jeune, dynamique et engagÃ©e dans le
-                dÃ©veloppement Ã©nergÃ©tique de la GuinÃ©e. Nous investissons dans la formation,
-                la sÃ©curitÃ© et le bien-Ãªtre de nos collaborateurs.
+                Africa Energy SAU, câ€™est une équipe jeune, dynamique et engagée dans le
+                développement énergétique de la Guinée. Nous investissons dans la formation,
+                la sécurité et le bien-être de nos collaborateurs.
               </p>
             </div>
             <div className='col-lg-4 text-center'>
@@ -57,15 +57,15 @@ const Careers = () => {
               <div style={{ fontSize: '70px', color: '#F39200' }}>
                 <i className='bi bi-broadcast'></i>
               </div>
-              <h3 className='mt-3 mb-3 text-white'>Les offres seront publiÃ©es prochainement</h3>
+              <h3 className='mt-3 mb-3 text-white'>Les offres seront publiées prochainement</h3>
               <p style={{ maxWidth: 600, margin: '0 auto', opacity: 0.9, fontSize: '1.05rem' }}>
-                Notre Ã©quipe sâ€™agrandit. De nouvelles opportunitÃ©s professionnelles seront
-                annoncÃ©es trÃ¨s bientÃ´t sur cette page. Revenez rÃ©guliÃ¨rement pour dÃ©couvrir
-                nos postes Ã  pourvoir.
+                Notre équipe sâ€™agrandit. De nouvelles opportunités professionnelles seront
+                annoncées très bientôt sur cette page. Revenez régulièrement pour découvrir
+                nos postes à pourvoir.
               </p>
               <div className='mt-4'>
                 <span className='badge px-4 py-2' style={{ backgroundColor: '#F39200', fontSize: '0.9rem' }}>
-                  <i className='bi bi-bell me-2'></i>Restez connectÃ©s
+                  <i className='bi bi-bell me-2'></i>Restez connectés
                 </span>
               </div>
             </div>

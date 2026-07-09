@@ -22,16 +22,16 @@ const Direction = () => {
             <div className="col-lg-4">
               <div className="dg-profile-card">
                 <div className="dg-photo-frame">
-                  <img src={dgPhoto} alt="Jean Baptiste HABA - Administrateur GÃ©nÃ©ral Africa Energy SAU" className="dg-photo" loading="lazy" decoding="async" />
+                  <img src={dgPhoto} alt="Jean Baptiste HABA - Administrateur Général Africa Energy SAU" className="dg-photo" loading="lazy" decoding="async" />
                 </div>
                 <div className="text-center px-3 pb-3">
                   <h2 className="dg-name">Jean Baptiste HABA</h2>
-                  <p className="dg-title-text">Administrateur GÃ©nÃ©ral</p>
+                  <p className="dg-title-text">Administrateur Général</p>
                 </div>
                 <div>
                   <div className="dg-info-row">
                     <i className="bi bi-briefcase-fill"></i>
-                    <strong>RÃ´le</strong>
+                    <strong>Rôle</strong>
                     <span>Fondateur & DG</span>
                   </div>
                   <div className="dg-info-row">
@@ -53,19 +53,19 @@ const Direction = () => {
               </div>
             </div>
             <div className="col-lg-8">
-              <h2 className="mb-4">Le mot de lâ€™Administrateur GÃ©nÃ©ral</h2>
+              <h2 className="mb-4">Le mot de lâ€™Administrateur Général</h2>
               <div className="dg-quote">
-                <p>Notre ambition est de faire dâ€™Africa Energy un pilier incontournable du secteur Ã©nergÃ©tique guinÃ©en. Chaque livraison est un engagement envers le dÃ©veloppement de notre pays. QualitÃ©, rigueur et Ã©thique guident chacune de nos opÃ©rations.</p>
-                <cite>Jean Baptiste HABA, Administrateur GÃ©nÃ©ral</cite>
+                <p>Notre ambition est de faire dâ€™Africa Energy un pilier incontournable du secteur énergétique guinéen. Chaque livraison est un engagement envers le développement de notre pays. Qualité, rigueur et éthique guident chacune de nos opérations.</p>
+                <cite>Jean Baptiste HABA, Administrateur Général</cite>
               </div>
               <h4 className="mt-4 mb-3">Une vision panafricaine</h4>
-              <p>Fort dâ€™une solide expÃ©rience dans le secteur pÃ©trolier et dâ€™une connaissance approfondie du marchÃ© guinÃ©en, Jean Baptiste HABA a fondÃ© Africa Energy SAU avec une conviction : lâ€™Afrique a besoin dâ€™acteurs Ã©nergÃ©tiques fiables, transparents et engagÃ©s dans la durÃ©e.</p>
-              <p>Sa stratÃ©gie sâ€™articule autour de trois piliers : la qualitÃ© de service, la conformitÃ© rÃ©glementaire et le dÃ©veloppement local. Sous sa direction, Africa Energy SAU a nouÃ© des partenariats stratÃ©giques avec la SONAP, la SGP et la DGI.</p>
+              <p>Fort dâ€™une solide expérience dans le secteur pétrolier et dâ€™une connaissance approfondie du marché guinéen, Jean Baptiste HABA a fondé Africa Energy SAU avec une conviction : lâ€™Afrique a besoin dâ€™acteurs énergétiques fiables, transparents et engagés dans la durée.</p>
+              <p>Sa stratégie sâ€™articule autour de trois piliers : la qualité de service, la conformité réglementaire et le développement local. Sous sa direction, Africa Energy SAU a noué des partenariats stratégiques avec la SONAP, la SGP et la DGI.</p>
               <h4 className="mt-4 mb-3">Ses engagements</h4>
               <ul>
-                <li>Garantir un approvisionnement rÃ©gulier et tracÃ©</li>
-                <li>Soutenir le dÃ©veloppement Ã©conomique de la GuinÃ©e</li>
-                <li>Respecter les normes OHADA et la conformitÃ© SONAP</li>
+                <li>Garantir un approvisionnement régulier et tracé</li>
+                <li>Soutenir le développement économique de la Guinée</li>
+                <li>Respecter les normes OHADA et la conformité SONAP</li>
                 <li>Accompagner les industriels et mineurs avec un service premium</li>
               </ul>
             </div>
@@ -88,13 +88,13 @@ const Direction = () => {
         <div className="container">
           <div className="section-title">
             <h2>Notre histoire</h2>
-            <p>De la vision dâ€™un homme Ã  une entreprise au service de la GuinÃ©e.</p>
+            <p>De la vision dâ€™un homme à une entreprise au service de la Guinée.</p>
           </div>
           <div className="timeline">
-            <div className="timeline-item"><div className="timeline-content"><span className="timeline-year">2025</span><h4>Naissance dâ€™Africa Energy SAU</h4><p>Fondation de la sociÃ©tÃ© Ã  Conakry par Jean Baptiste HABA.</p></div><div className="timeline-dot"></div></div>
-            <div className="timeline-item"><div className="timeline-content"><span className="timeline-year">2025</span><h4>Partenariats stratÃ©giques</h4><p>Signature des conventions avec la SONAP, la SGP et la DGI.</p></div><div className="timeline-dot"></div></div>
-            <div className="timeline-item"><div className="timeline-content"><span className="timeline-year">2025</span><h4>PremiÃ¨res livraisons</h4><p>DÃ©ploiement de la flotte et livraisons clients.</p></div><div className="timeline-dot"></div></div>
-            <div className="timeline-item"><div className="timeline-content"><span className="timeline-year">2026</span><h4>Expansion vers Simandou</h4><p>Extension des opÃ©rations vers les zones miniÃ¨res.</p></div><div className="timeline-dot"></div></div>
+            <div className="timeline-item"><div className="timeline-content"><span className="timeline-year">2025</span><h4>Naissance dâ€™Africa Energy SAU</h4><p>Fondation de la société à Conakry par Jean Baptiste HABA.</p></div><div className="timeline-dot"></div></div>
+            <div className="timeline-item"><div className="timeline-content"><span className="timeline-year">2025</span><h4>Partenariats stratégiques</h4><p>Signature des conventions avec la SONAP, la SGP et la DGI.</p></div><div className="timeline-dot"></div></div>
+            <div className="timeline-item"><div className="timeline-content"><span className="timeline-year">2025</span><h4>Premières livraisons</h4><p>Déploiement de la flotte et livraisons clients.</p></div><div className="timeline-dot"></div></div>
+            <div className="timeline-item"><div className="timeline-content"><span className="timeline-year">2026</span><h4>Expansion vers Simandou</h4><p>Extension des opérations vers les zones minières.</p></div><div className="timeline-dot"></div></div>
             <div className="timeline-item"><div className="timeline-content"><span className="timeline-year">2026</span><h4>Digitalisation</h4><p>Lancement de la plateforme digitale.</p></div><div className="timeline-dot"></div></div>
           </div>
         </div>
@@ -104,14 +104,14 @@ const Direction = () => {
         <div className="container">
           <div className="section-title">
             <h2>Organigramme de lâ€™entreprise</h2>
-            <p>Une structure hiÃ©rarchisÃ©e avec 5 collaborateurs clÃ©s.</p>
+            <p>Une structure hiérarchisée avec 5 collaborateurs clés.</p>
           </div>
 
           <div className="org-tree">
             <div className="org-node dg">
-              <div className="role">Direction GÃ©nÃ©rale</div>
+              <div className="role">Direction Générale</div>
               <div className="name">Jean Baptiste HABA</div>
-              <p style={{ fontSize: '0.8rem', opacity: 0.9, margin: '0 0 8px 0' }}>Administrateur GÃ©nÃ©ral</p>
+              <p style={{ fontSize: '0.8rem', opacity: 0.9, margin: '0 0 8px 0' }}>Administrateur Général</p>
               <div className="contact-block">
                 <a href="tel:+224624251991"><i className="bi bi-telephone-fill"></i> 624 251 991</a>
                 <a href="mailto:habajb9211@gmail.com"><i className="bi bi-envelope-fill"></i> habajb9211@gmail.com</a>
@@ -122,9 +122,9 @@ const Direction = () => {
             <div className="org-level">
               <div className="org-branch">
                 <div className="org-node">
-                  <div className="role">SecrÃ©tariat GÃ©nÃ©ral</div>
+                  <div className="role">Secrétariat Général</div>
                   <div className="name">Zoumana TRAORÃ‰</div>
-                  <p style={{ fontSize: '0.78rem', color: '#666', margin: '0 0 8px 0' }}>SecrÃ©taire GÃ©nÃ©ral</p>
+                  <p style={{ fontSize: '0.78rem', color: '#666', margin: '0 0 8px 0' }}>Secrétaire Général</p>
                   <div className="contact-block">
                     <a href="tel:+224628953007"><i className="bi bi-telephone-fill"></i> 628 953 007</a>
                     <a href="mailto:zoumanazenotraore@gmail.com"><i className="bi bi-envelope-fill"></i> zoumanazenotraore@gmail.com</a>
@@ -157,7 +157,7 @@ const Direction = () => {
                   </div>
                 </div>
                 <div className="org-node">
-                  <div className="role">ComptabilitÃ©</div>
+                  <div className="role">Comptabilité</div>
                   <div className="name">Ezechiel Zoma KOIVOGUI</div>
                   <p style={{ fontSize: '0.78rem', color: '#666', margin: '0 0 8px 0' }}>Assistant Comptable</p>
                   <div className="contact-block">
@@ -175,28 +175,28 @@ const Direction = () => {
       <section className="section-padding text-center" style={{ backgroundColor: '#F5F7FA' }}>
         <div className="container">
           <div className="section-title">
-            <h2>IdentitÃ© de lâ€™entreprise</h2>
+            <h2>Identité de lâ€™entreprise</h2>
           </div>
           <div className="row g-4">
             <div className="col-lg-4">
               <div className="identity-card vision">
                 <div className="icon-circle"><i className="bi bi-eye-fill"></i></div>
                 <h3>Notre vision</h3>
-                <p>Devenir lâ€™opÃ©rateur pÃ©trolier de rÃ©fÃ©rence en GuinÃ©e et en Afrique de lâ€™Ouest.</p>
+                <p>Devenir lâ€™opérateur pétrolier de référence en Guinée et en Afrique de lâ€™Ouest.</p>
               </div>
             </div>
             <div className="col-lg-4">
               <div className="identity-card mission">
                 <div className="icon-circle"><i className="bi bi-bullseye"></i></div>
                 <h3>Notre mission</h3>
-                <p>Assurer un approvisionnement rÃ©gulier, sÃ©curisÃ© et de qualitÃ© sur tout le territoire guinÃ©en.</p>
+                <p>Assurer un approvisionnement régulier, sécurisé et de qualité sur tout le territoire guinéen.</p>
               </div>
             </div>
             <div className="col-lg-4">
               <div className="identity-card values">
                 <div className="icon-circle"><i className="bi bi-heart-fill"></i></div>
                 <h3>Nos valeurs</h3>
-                <p>IntÃ©gritÃ© - Excellence - FiabilitÃ© - ResponsabilitÃ© - Engagement national</p>
+                <p>Intégrité - Excellence - Fiabilité - Responsabilité - Engagement national</p>
               </div>
             </div>
           </div>
