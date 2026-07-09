@@ -1,0 +1,9 @@
+services:
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: africa-energy-web
+    ports:
+      - "8080:80"
+    restart: unless-stopped
