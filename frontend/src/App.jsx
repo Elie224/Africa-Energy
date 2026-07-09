@@ -12,27 +12,33 @@ import Contact from './pages/Contact'
 import Direction from './pages/Direction'
 import NotFound from './pages/NotFound'
 import Legal from './pages/Legal'
+import AdminApp from './admin/AdminApp'
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/a-propos" element={<About />} />
-          <Route path="/produits-services" element={<Services />} />
-          <Route path="/engagements" element={<Engagements />} />
-          <Route path="/actualites" element={<News />} />
-          <Route path="/carrieres" element={<Careers />} />
-          <Route path="/direction" element={<Direction />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/mentions-legales" element={<Legal />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/admin/*" element={<AdminApp />} />
+      <Route path="*" element={
+        <div className="App">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/a-propos" element={<About />} />
+              <Route path="/produits-services" element={<Services />} />
+              <Route path="/engagements" element={<Engagements />} />
+              <Route path="/actualites" element={<News />} />
+              <Route path="/carrieres" element={<Careers />} />
+              <Route path="/direction" element={<Direction />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/mentions-legales" element={<Legal />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      } />
+    </Routes>
   )
 }
 
