@@ -25,7 +25,11 @@ export default defineConfig({
   server: {
     port: 5173,
     open: false,
-    headers: securityHeaders
+    headers: securityHeaders,
+    proxy: {
+      '/api': { target: 'http://localhost:4000', changeOrigin: true },
+      '/uploads': { target: 'http://localhost:4000', changeOrigin: true }
+    }
   },
   preview: {
     port: 4173,
