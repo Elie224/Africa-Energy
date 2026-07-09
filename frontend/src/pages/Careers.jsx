@@ -5,9 +5,9 @@ const Careers = () => {
   const [jobs, setJobs] = useState([])
 
   useEffect(() => {
-    // Recuperation des offres depuis lâ€™API (back-office)
-    // Pour lâ€™instant la liste est vide - lâ€™encadré apparait
-    // Quand lâ€™admin publiera, fetch('/api/jobs') remplira cette liste
+    // Recuperation des offres depuis l’API (back-office)
+    // Pour l’instant la liste est vide - l’encadré apparait
+    // Quand l’admin publiera, fetch('/api/jobs') remplira cette liste
     const fetchJobs = async () => {
       try {
         const res = await fetch('/api/jobs')
@@ -29,7 +29,7 @@ const Careers = () => {
         <div className='container text-center'>
           <h1>Carrières</h1>
           <p className='mt-3' style={{ fontSize: '1.2rem', opacity: 0.95 }}>
-            Rejoignez lâ€™aventure Africa Energy SAU
+            Rejoignez l’aventure Africa Energy SAU
           </p>
         </div>
       </section>
@@ -40,7 +40,7 @@ const Careers = () => {
             <div className='col-lg-8'>
               <h2>Pourquoi nous rejoindre ?</h2>
               <p className='lead text-muted'>
-                Africa Energy SAU, câ€™est une équipe jeune, dynamique et engagée dans le
+                Africa Energy SAU, c’est une équipe jeune, dynamique et engagée dans le
                 développement énergétique de la Guinée. Nous investissons dans la formation,
                 la sécurité et le bien-être de nos collaborateurs.
               </p>
@@ -59,7 +59,7 @@ const Careers = () => {
               </div>
               <h3 className='mt-3 mb-3 text-white'>Les offres seront publiées prochainement</h3>
               <p style={{ maxWidth: 600, margin: '0 auto', opacity: 0.9, fontSize: '1.05rem' }}>
-                Notre équipe sâ€™agrandit. De nouvelles opportunités professionnelles seront
+                Notre équipe s’agrandit. De nouvelles opportunités professionnelles seront
                 annoncées très bientôt sur cette page. Revenez régulièrement pour découvrir
                 nos postes à pourvoir.
               </p>

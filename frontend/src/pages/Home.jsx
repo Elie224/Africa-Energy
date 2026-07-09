@@ -15,7 +15,7 @@ const Home = () => {
                 <i className="bi bi-fuel-pump me-2"></i>Distribution pétrolière depuis 2025
               </span>
               <h1>
-                Lâ€™énergie qui fait <span className="highlight">avancer</span> lâ€™Afrique
+                L’énergie qui fait <span className="highlight">avancer</span> l’Afrique
               </h1>
               <p>
                 Africa Energy SAU, votre partenaire de confiance en Guinée pour la
@@ -27,7 +27,7 @@ const Home = () => {
                   <i className="bi bi-envelope-paper me-2"></i>Demander un devis
                 </Link>
                 <Link to="/a-propos" className="btn btn-outline-light rounded-pill px-4 py-2">
-                  Découvrir lâ€™entreprise <i className="bi bi-arrow-right ms-2"></i>
+                  Découvrir l’entreprise <i className="bi bi-arrow-right ms-2"></i>
                 </Link>
               </div>
             </div>
@@ -77,7 +77,7 @@ const Home = () => {
         <div className="container">
           <div className="section-title">
             <h2>Notre offre</h2>
-            <p>Une gamme complète de produits pétroliers et services adaptés à chaque secteur dâ€™activité.</p>
+            <p>Une gamme complète de produits pétroliers et services adaptés à chaque secteur d’activité.</p>
           </div>
 
           <div className="row g-4">
@@ -92,7 +92,7 @@ const Home = () => {
               <div className="ae-card">
                 <div className="icon"><i className="bi bi-droplet-half"></i></div>
                 <h4>Lubrifiants</h4>
-                <p>Huiles et lubrifiants spécialisés pour lâ€™automobile, lâ€™industrie et les mines.</p>
+                <p>Huiles et lubrifiants spécialisés pour l’automobile, l’industrie et les mines.</p>
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
@@ -178,7 +178,7 @@ const Home = () => {
         <div className="container">
           <div className="section-title">
             <h2>Secteurs desservis</h2>
-            <p>Nous accompagnons les acteurs majeurs de lâ€™économie guinéenne.</p>
+            <p>Nous accompagnons les acteurs majeurs de l’économie guinéenne.</p>
           </div>
 
           <div className="row g-4 text-center">

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Section = ({ num, title, children }) => (
   <section className="mb-5">
     <h2 className="mb-3" style={{ color: 'var(--ae-blue-dark)', fontSize: '1.5rem', fontWeight: 700 }}>
-      <span className="me-2" style={{ color: 'var(--ae-orange)' }}>{num} â€“</span>{title}
+      <span className="me-2" style={{ color: 'var(--ae-orange)' }}>{num} “</span>{title}
     </h2>
     <div style={{ lineHeight: 1.8, color: '#333' }}>{children}</div>
   </section>
@@ -36,27 +36,27 @@ const Legal = () => {
             <p><strong style={{ color: 'var(--ae-blue-dark)' }}>Propriétaire du site :</strong><br />
               AFRICA ENERGY S.A.U<br />
               Société Anonyme Unipersonnelle avec Administrateur Général<br />
-              RCCM N° GN.TCC.2025.B.18185 â€“ Formalité N° GN.TCC.2025.20590<br />
+              RCCM N° GN.TCC.2025.B.18185 “ Formalité N° GN.TCC.2025.20590<br />
               Siège social : Quartier Almamya, Commune de Kaloum, Conakry, République de Guinée<br />
-              Contact : <a href="tel:+224612368058">+224 612 368 058</a> â€“ <a href="mailto:africaenergysau@gmail.com">africaenergysau@gmail.com</a>
+              Contact : <a href="tel:+224612368058">+224 612 368 058</a> “ <a href="mailto:africaenergysau@gmail.com">africaenergysau@gmail.com</a>
             </p>
 
             <p><strong style={{ color: 'var(--ae-blue-dark)' }}>Identification de l'entreprise :</strong><br />
-              AFRICA ENERGY S.A.U â€“ Société Anonyme Unipersonnelle avec Administrateur Général â€“
+              AFRICA ENERGY S.A.U “ Société Anonyme Unipersonnelle avec Administrateur Général “
               Durée : 99 ans à compter du 23 décembre 2025.
             </p>
 
             <p><strong style={{ color: 'var(--ae-blue-dark)' }}>Directeur de la publication :</strong><br />
               Monsieur Jean Baptiste HABA, Administrateur Général d'AFRICA ENERGY S.A.U<br />
-              Contact : <a href="tel:+224612368058">+224 612 368 058</a> â€“ <a href="mailto:africaenergysau@gmail.com">africaenergysau@gmail.com</a>
+              Contact : <a href="tel:+224612368058">+224 612 368 058</a> “ <a href="mailto:africaenergysau@gmail.com">africaenergysau@gmail.com</a>
             </p>
 
             <p><strong style={{ color: 'var(--ae-blue-dark)' }}>Hébergeur :</strong><br />
-              À compléter â€“ nom de l'hébergeur, adresse et téléphone.
+              À compléter “ nom de l'hébergeur, adresse et téléphone.
             </p>
 
             <p><strong style={{ color: 'var(--ae-blue-dark)' }}>Délégué à la protection des données :</strong><br />
-              AFRICA ENERGY S.A.U â€“ <a href="mailto:africaenergysau@gmail.com">africaenergysau@gmail.com</a>
+              AFRICA ENERGY S.A.U “ <a href="mailto:africaenergysau@gmail.com">africaenergysau@gmail.com</a>
             </p>
           </Section>
 
@@ -106,24 +106,24 @@ const Legal = () => {
             <p>
               Conformément aux dispositions de la loi 78-17 du 6 janvier 1978 modifiée, l'utilisateur du site dispose
               d'un droit d'accès, de modification et de suppression des informations collectées. Pour exercer ce droit,
-              envoyez un message à notre Délégué à la Protection des Données : AFRICA ENERGY S.A.U â€“
+              envoyez un message à notre Délégué à la Protection des Données : AFRICA ENERGY S.A.U “
               {' '}<a href="mailto:africaenergysau@gmail.com">africaenergysau@gmail.com</a>.
             </p>
             <p>
               Pour plus d'informations sur la façon dont nous traitons vos données (type de données, finalité,
-              destinataire, durée de conservationâ€¦), consultez notre
+              destinataire, durée de conservation…), consultez notre
               {' '}<Link to="/politique-de-confidentialite">politique de confidentialité</Link>.
             </p>
           </Section>
 
           <Section num="5" title="Liens hypertextes et cookies">
             <p>
-              Le site contient des liens hypertextes vers dâ€™autres sites ; AFRICA ENERGY S.A.U dégage toute responsabilité
-              à propos de ces liens externes ou des liens créés par dâ€™autres sites vers le présent site.
+              Le site contient des liens hypertextes vers d’autres sites ; AFRICA ENERGY S.A.U dégage toute responsabilité
+              à propos de ces liens externes ou des liens créés par d’autres sites vers le présent site.
             </p>
             <p>
               La navigation sur le site est susceptible de provoquer l'installation de cookie(s) sur l'ordinateur de
-              l'utilisateur. Un «â€¯cookieâ€¯» est un fichier de petite taille qui enregistre des informations relatives à
+              l'utilisateur. Un « cookie » est un fichier de petite taille qui enregistre des informations relatives à
               la navigation d'un utilisateur sur un site. Les données ainsi obtenues permettent notamment d'obtenir des
               mesures de fréquentation.
             </p>

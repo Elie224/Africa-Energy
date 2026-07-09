@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom'
 const Engagements = () => {
   const engagements = [
     { icon: 'bi-shield-fill-check', title: 'Conformité réglementaire', desc: 'Respect strict des normes OHADA et réglementations en vigueur en Guinée.', color: 'var(--ae-blue)' },
-    { icon: 'bi-graph-up-arrow', title: 'Traçabilité complète', desc: 'Chaque produit est traçable de la source jusquâ€™à la livraison finale.', color: 'var(--ae-orange)' },
+    { icon: 'bi-graph-up-arrow', title: 'Traçabilité complète', desc: 'Chaque produit est traçable de la source jusqu’à la livraison finale.', color: 'var(--ae-orange)' },
     { icon: 'bi-lock-fill', title: 'Sécurité des opérations', desc: 'Personnel formé, équipements aux normes, protocoles stricts.', color: 'var(--ae-green)' },
     { icon: 'bi-people-fill', title: 'Service client exigeant', desc: 'Réactivité, transparence et suivi personnalisé de chaque client.', color: 'var(--ae-gold)' },
-    { icon: 'bi-tree-fill', title: 'Engagement environnemental', desc: 'Démarche responsable pour limiter lâ€™impact environnemental.', color: 'var(--ae-green)' },
+    { icon: 'bi-tree-fill', title: 'Engagement environnemental', desc: 'Démarche responsable pour limiter l’impact environnemental.', color: 'var(--ae-green)' },
     { icon: 'bi-award-fill', title: 'Excellence opérationnelle', desc: 'Amélioration continue de nos processus et de notre logistique.', color: 'var(--ae-blue)' }
   ]
 

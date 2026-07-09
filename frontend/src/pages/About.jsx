@@ -10,7 +10,7 @@ const About = () => {
         <div className="container text-center">
           <h1>Qui sommes-nous ?</h1>
           <p className="mt-3" style={{ fontSize: '1.2rem', opacity: 0.95 }}>
-            Une société guinéenne engagée pour lâ€™énergie de lâ€™Afrique
+            Une société guinéenne engagée pour l’énergie de l’Afrique
           </p>
         </div>
       </section>
@@ -26,7 +26,7 @@ const About = () => {
                 nous servons les entreprises et particuliers depuis 2025.
               </p>
               <p>
-                Notre ambition est de faire dâ€™Africa Energy un pilier incontournable du
+                Notre ambition est de faire d’Africa Energy un pilier incontournable du
                 secteur énergétique guinéen. Qualité, rigueur et éthique guident chacune
                 de nos opérations.
               </p>
@@ -37,7 +37,7 @@ const About = () => {
                   <div className="ae-card text-center">
                     <i className="bi bi-eye fs-1 mb-3" style={{ color: 'var(--ae-orange)' }}></i>
                     <h5>Notre vision</h5>
-                    <p className="small">Devenir lâ€™opérateur pétrolier de référence en Guinée et en Afrique de lâ€™Ouest.</p>
+                    <p className="small">Devenir l’opérateur pétrolier de référence en Guinée et en Afrique de l’Ouest.</p>
                   </div>
                 </div>
                 <div className="col-6">

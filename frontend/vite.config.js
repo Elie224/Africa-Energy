@@ -9,24 +9,22 @@ const securityHeaders = {
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
   'Content-Security-Policy': [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com data:",
-    "img-src 'self' data: https:",
-    "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com",
+    "img-src 'self' data: blob: https:",
+    "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com ws: wss:",
     "frame-ancestors 'self'",
     "base-uri 'self'",
     "form-action 'self'"
   ].join('; ')
 }
 
-// Force charset=utf-8 sur les reponses JS/CSS/HTML pour eviter les problemes
-// d'encodage cote navigateur (certains navigateurs sur Windows tombent sur
-// CP1252 si aucun charset n'est precise sur les scripts modules).
+// Force charset=utf-8 sur les reponses text/* via un middleware.
 const charsetPlugin = () => ({
   name: 'force-utf8-charset',
   configureServer(server) {
-    server.middlewares.use((_req, res, next) => {
+    server.middlewares.use((req, res, next) => {
       const origSetHeader = res.setHeader.bind(res)
       res.setHeader = function (name, value) {
         if (typeof value === 'string' && /^text\//.test(value) && !/charset/i.test(value)) {
@@ -38,7 +36,7 @@ const charsetPlugin = () => ({
     })
   },
   configurePreviewServer(server) {
-    server.middlewares.use((_req, res, next) => {
+    server.middlewares.use((req, res, next) => {
       const origSetHeader = res.setHeader.bind(res)
       res.setHeader = function (name, value) {
         if (typeof value === 'string' && /^text\//.test(value) && !/charset/i.test(value)) {
