@@ -18,24 +18,31 @@ const Contact = () => {
     return ''
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const err = validate()
     if (err) { setError(err); return }
     setError('')
-    // Envoi reel via backend (POST /api/contact) - fallback mailto
-    const subject = encodeURIComponent('Demande de devis - Africa Energy')
-    const body = encodeURIComponent(
-      'Nom: ' + form.nom +
-      '\nEmail: ' + form.email +
-      '\nTelephone: ' + form.telephone +
-      '\nEntreprise: ' + (form.entreprise || '-') +
-      '\nProduit: ' + (form.produit || '-') +
-      '\n\nMessage:\n' + form.message
-    )
-    window.location.href = 'mailto:africaenergysau@gmail.com?subject=' + subject + '&body=' + body
-    setSent(true)
-    setTimeout(() => setSent(false), 5000)
+    setSending(true)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        setError(data.error || 'Erreur lors de l envoi')
+        return
+      }
+      setSent(true)
+      setForm({ nom: '', email: '', telephone: '', entreprise: '', produit: '', message: '', website: '' })
+      setTimeout(() => setSent(false), 5000)
+    } catch (e) {
+      setError('Reseau indisponible. Reessayez plus tard.')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -161,8 +168,8 @@ const Contact = () => {
                       <textarea name="message" className="form-control" rows="5" required value={form.message} onChange={handleChange}></textarea>
                     </div>
                     <div className="col-12">
-                      <button type="submit" className="btn btn-ae-primary btn-lg w-100">
-                        <i className="bi bi-send me-2"></i>Envoyer ma demande
+                      <button type="submit" className="btn btn-ae-primary btn-lg w-100" disabled={sending}>
+                        {sending ? <><span className="spinner-border spinner-border-sm me-2" />Envoi en cours</> : <><i className="bi bi-send me-2" />Envoyer ma demande</>}
                       </button>
                     </div>
                   </div>

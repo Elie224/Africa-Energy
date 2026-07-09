@@ -6,4 +6,17 @@ services:
     container_name: africa-energy-web
     ports:
       - "8080:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: africa-energy-api
+    env_file:
+      - ./backend/.env
+    ports:
+      - "4000:4000"
     restart: unless-stopped
