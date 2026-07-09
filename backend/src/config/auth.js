@@ -14,6 +14,7 @@ const JWT_TTL = '24h'
 export const hashPassword = (plain) => bcrypt.hashSync(plain, 12)
 export const verifyPassword = (plain, hash) => bcrypt.compareSync(plain, hash)
 
+// req.user est issu du JWT (champs standard : sub = id, email, role, name)
 export const signToken = (user) => jwt.sign(
   { sub: user.id, email: user.email, role: user.role, name: user.name },
   JWT_SECRET,
@@ -30,14 +31,22 @@ export const totpUri = (email, secret) => authenticator.keyuri(email, 'Africa En
 export const totpQrPng = (uri) => QRCode.toDataURL(uri)
 
 // ---------- AUDIT ----------
+// Accepte soit un req.user (JWT payload) soit un user DB (row)
+// Normalise en { id, email }
+const normUser = (u) => {
+  if (!u) return null
+  return { id: u.id ?? u.sub ?? null, email: u.email ?? null }
+}
+
 export const audit = ({ user, action, target = null, ip = null, userAgent = null, meta = null }) => {
   try {
+    const u = normUser(user)
     db.prepare(`
       INSERT INTO audit_logs (user_id, user_email, action, target, ip, user_agent, meta, created_at)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `).run(
-      user?.id || null,
-      user?.email || null,
+      u?.id || null,
+      u?.email || null,
       action,
       target,
       ip,

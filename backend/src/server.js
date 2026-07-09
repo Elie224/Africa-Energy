@@ -7,35 +7,36 @@ import { fileURLToPath } from 'node:url'
 import './db/index.js'
 import contactRouter from './routes/contact.js'
 import authRouter from './routes/auth.js'
+import adminRouter from './routes/admin.js'
+import usersRouter from './routes/users.js'
+import auditRouter from './routes/audit.js'
+import mediaRouter from './routes/media.js'
+import publicRouter from './routes/public.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const app = express()
 const PORT = process.env.PORT || 4000
 
-app.use(helmet({
-  contentSecurityPolicy: false // admin + public servis separemment
-}))
-
+app.use(helmet({ contentSecurityPolicy: false }))
 app.use(cors({
   origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5173',
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   credentials: false
 }))
-
 app.use(express.json({ limit: '50kb' }))
 
-// Fichiers uploades (mediatheque)
 app.use('/uploads', express.static(path.resolve(__dirname, '../uploads')))
 
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }))
 
-// Public
 app.use('/api/contact', contactRouter)
-
-// Admin : auth
 app.use('/api/auth', authRouter)
+app.use('/api/public', publicRouter)
+app.use('/api/admin', adminRouter)
+app.use('/api/users', usersRouter)
+app.use('/api/audit', auditRouter)
+app.use('/api/media', mediaRouter)
 
-// 404 + erreurs
 app.use((_req, res) => res.status(404).json({ error: 'Not found' }))
 app.use((err, _req, res, _next) => {
   console.error(err)

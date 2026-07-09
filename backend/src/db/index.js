@@ -9,14 +9,16 @@ const dataDir = path.resolve(__dirname, '../../data')
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true })
 const dbPath = process.env.DB_PATH || path.join(dataDir, 'africa-energy.db')
 
-// API simplifiee compatible better-sqlite3 (prepare / run / get / all)
 class DB {
   constructor(path) { this._d = new DatabaseSync(path) }
   exec(sql) { this._d.exec(sql) }
   prepare(sql) {
     const stmt = this._d.prepare(sql)
     return {
-      run: (...args) => { stmt.run(...args); return { lastInsertRowid: Number(this._d.lastInsertRowid), changes: stmt.changes ?? 1 } },
+      run: (...args) => {
+        const r = stmt.run(...args)
+        return { lastInsertRowid: Number(r.lastInsertRowid), changes: Number(r.changes) }
+      },
       get: (...args) => stmt.get(...args) || null,
       all: (...args) => stmt.all(...args)
     }
