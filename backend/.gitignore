@@ -5,4 +5,15 @@ node_modules/
 .DS_Store
 .vscode/
 .idea/
-dist/
+
+# BDD SQLite runtime
+data/
+*.db
+*.db-shm
+*.db-wal
+
+# Uploads runtime
+uploads/
+
+# Backups runtime
+backups/
