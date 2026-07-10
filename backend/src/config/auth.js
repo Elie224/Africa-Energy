@@ -5,11 +5,18 @@ import { authenticator } from 'otplib'
 import QRCode from 'qrcode'
 import db from '../db/index.js'
 
-const JWT_SECRET = process.env.JWT_SECRET || crypto.randomBytes(48).toString('hex')
-if (!process.env.JWT_SECRET) {
-  console.warn('[auth] JWT_SECRET non defini - generation aleatoire (sessions invalidees au reboot)')
+let JWT_SECRET = process.env.JWT_SECRET
+if (!JWT_SECRET) {
+  if (process.env.NODE_ENV === 'production') {
+    console.error('[auth] FATAL: JWT_SECRET manquant en production. Generation aleatoire refusee.')
+    process.exit(1)
+  }
+  console.warn('[auth] JWT_SECRET non defini - generation aleatoire (DEV UNIQUEMENT, sessions invalidees au reboot)')
+  JWT_SECRET = crypto.randomBytes(48).toString('hex')
 }
-const JWT_TTL = '24h'
+const JWT_TTL = '1h'
+const REFRESH_TTL_MS = 7 * 24 * 60 * 60 * 1000 // 7 jours
+const REFRESH_BYTES = 48
 
 export const hashPassword = (plain) => bcrypt.hashSync(plain, 12)
 export const verifyPassword = (plain, hash) => bcrypt.compareSync(plain, hash)
@@ -29,6 +36,51 @@ export const generateTotpSecret = () => authenticator.generateSecret()
 export const verifyTotp = (token, secret) => authenticator.check(token, secret)
 export const totpUri = (email, secret) => authenticator.keyuri(email, 'Africa Energy Admin', secret)
 export const totpQrPng = (uri) => QRCode.toDataURL(uri)
+
+
+
+// ---------- REFRESH TOKEN ----------
+// Le refresh token est une chaine aleatoire envoyee au client.
+// Seul le SHA-256 est stocke en DB (le token brut n'est jamais persiste).
+export const generateRefreshToken = () => crypto.randomBytes(REFRESH_BYTES).toString('base64url')
+const hashRefresh = (t) => crypto.createHash('sha256').update(t).digest('hex')
+
+export const persistRefreshToken = (userId, token) => {
+  const hash = hashRefresh(token)
+  const expiresAt = Date.now() + REFRESH_TTL_MS
+  db.prepare('INSERT INTO refresh_tokens (user_id, token_hash, expires_at, created_at) VALUES (?, ?, ?, ?)')
+    .run(userId, hash, expiresAt, Date.now())
+  return { token, expiresAt }
+}
+
+export const rotateRefreshToken = (oldToken, userId) => {
+  const oldHash = hashRefresh(oldToken)
+  const row = db.prepare('SELECT id, expires_at, revoked FROM refresh_tokens WHERE token_hash = ?').get(oldHash)
+  if (!row || row.revoked || row.expires_at < Date.now()) return null
+  // Revoke l'ancien, creer le nouveau
+  const newToken = generateRefreshToken()
+  const newHash = hashRefresh(newToken)
+  const expiresAt = Date.now() + REFRESH_TTL_MS
+  db.prepare('UPDATE refresh_tokens SET revoked = 1 WHERE id = ?').run(row.id)
+  db.prepare('INSERT INTO refresh_tokens (user_id, token_hash, expires_at, created_at) VALUES (?, ?, ?, ?)')
+    .run(userId, newHash, expiresAt, Date.now())
+  return { token: newToken, expiresAt }
+}
+
+export const revokeRefreshToken = (token) => {
+  const hash = hashRefresh(token)
+  db.prepare('UPDATE refresh_tokens SET revoked = 1 WHERE token_hash = ?').run(hash)
+}
+
+export const revokeAllUserTokens = (userId) => {
+  db.prepare('UPDATE refresh_tokens SET revoked = 1 WHERE user_id = ?').run(userId)
+}
+
+// Purge les refresh tokens expires (a appeler periodiquement)
+export const purgeExpiredRefreshTokens = () => {
+  const r = db.prepare('DELETE FROM refresh_tokens WHERE expires_at < ? OR revoked = 1').run(Date.now() - 24*60*60*1000)
+  return r.changes
+}
 
 // ---------- AUDIT ----------
 // Accepte soit un req.user (JWT payload) soit un user DB (row)

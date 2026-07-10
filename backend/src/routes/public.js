@@ -28,8 +28,11 @@ router.get('/events', (_req, res) => {
   const items = db.prepare("SELECT * FROM events ORDER BY start_at DESC LIMIT 100").all()
   res.json({ items })
 })
+// B15 : whitelist des cles exposees au public
+const PUBLIC_SETTINGS = ['site.tagline', 'site.email', 'site.phone', 'site.address', 'social.whatsapp', 'social.maps']
 router.get('/settings', (_req, res) => {
-  const rows = db.prepare('SELECT key, value FROM settings').all()
+  const placeholders = PUBLIC_SETTINGS.map(() => '?').join(',')
+  const rows = db.prepare(`SELECT key, value FROM settings WHERE key IN (${placeholders})`).all(...PUBLIC_SETTINGS)
   const out = {}
   for (const r of rows) { try { out[r.key] = JSON.parse(r.value) } catch { out[r.key] = r.value } }
   res.json({ settings: out })

@@ -5,7 +5,9 @@ import db from '../db/index.js'
 import {
   hashPassword, verifyPassword, signToken,
   generateTotpSecret, verifyTotp, totpUri, totpQrPng,
-  audit, getClientIp
+  audit, getClientIp,
+  persistRefreshToken, rotateRefreshToken, revokeRefreshToken,
+  generateRefreshToken
 } from '../config/auth.js'
 import { requireAuth } from '../middleware/auth.js'
 
@@ -57,7 +59,12 @@ router.post('/login', loginLimiter, (req, res) => {
   if (user.totp_enabled) {
     if (!totp) return res.status(401).json({ error: 'Code 2FA requis', requiresTotp: true })
     if (!verifyTotp(totp, user.totp_secret)) {
-      audit({ user, action: 'login.failed', ip, userAgent: ua, meta: { reason: 'bad_totp' } })
+      const failed = (user.failed_attempts || 0) + 1
+      const locked = failed >= MAX_FAILED ? Date.now() + LOCK_MS : null
+      db.prepare('UPDATE users SET failed_attempts = ?, locked_until = ? WHERE id = ?')
+        .run(failed, locked, user.id)
+      audit({ user, action: 'login.failed', ip, userAgent: ua, meta: { reason: 'bad_totp', failed } })
+      if (locked) return res.status(423).json({ error: 'Compte verrouille apres 5 echecs.' })
       return res.status(401).json({ error: 'Code 2FA invalide' })
     }
   }
@@ -67,9 +74,12 @@ router.post('/login', loginLimiter, (req, res) => {
     .run(Date.now(), ip, user.id)
 
   const token = signToken(user)
+  const refresh = persistRefreshToken(user.id, generateRefreshToken())
   audit({ user, action: 'login.success', ip, userAgent: ua })
   res.json({
     token,
+    refreshToken: refresh.token,
+    refreshExpiresAt: refresh.expiresAt,
     user: { id: user.id, email: user.email, name: user.name, role: user.role, totpEnabled: !!user.totp_enabled }
   })
 })
@@ -116,8 +126,42 @@ router.post('/2fa/disable', requireAuth, (req, res) => {
   res.json({ ok: true })
 })
 
-// POST /api/auth/logout (cote audit uniquement, JWT stateless)
+// POST /api/auth/refresh - echange un refresh token contre un nouveau access + refresh
+router.post('/refresh', (req, res) => {
+  const ip = getClientIp(req)
+  const ua = req.headers['user-agent'] || null
+  const { refreshToken } = req.body || {}
+  if (!refreshToken) return res.status(400).json({ error: 'refreshToken requis' })
+  // Trouver le user_id via rotation
+  const rotated = rotateRefreshToken(refreshToken, null)
+  // rotateRefreshToken exige userId : on patche via une requete directe
+  // Solution : on refait la logique ici en une seule requete
+  const hash = require('node:crypto').createHash('sha256').update(refreshToken).digest('hex')
+  const row = db.prepare('SELECT user_id, expires_at, revoked FROM refresh_tokens WHERE token_hash = ?').get(hash)
+  if (!row || row.revoked || row.expires_at < Date.now()) {
+    return res.status(401).json({ error: 'Refresh token invalide ou expire' })
+  }
+  const user = db.prepare('SELECT * FROM users WHERE id = ? AND active = 1').get(row.user_id)
+  if (!user) return res.status(401).json({ error: 'Utilisateur inactif' })
+  const access = signToken(user)
+  const refreshed = persistRefreshToken(user.id, generateRefreshToken())
+  // Revoke l'ancien
+  db.prepare('UPDATE refresh_tokens SET revoked = 1 WHERE token_hash = ?').run(hash)
+  audit({ user, action: 'token.refresh', ip, userAgent: ua })
+  res.json({
+    token: access,
+    refreshToken: refreshed.token,
+    refreshExpiresAt: refreshed.expiresAt,
+    user: { id: user.id, email: user.email, name: user.name, role: user.role, totpEnabled: !!user.totp_enabled }
+  })
+})
+
+// POST /api/auth/logout - revoque le refresh token + audit
 router.post('/logout', requireAuth, (req, res) => {
+  const { refreshToken } = req.body || {}
+  if (refreshToken) {
+    try { revokeRefreshToken(refreshToken) } catch {}
+  }
   const user = db.prepare('SELECT * FROM users WHERE id = ?').get(req.user.sub)
   audit({ user, action: 'logout', ip: getClientIp(req), userAgent: req.headers['user-agent'] })
   res.json({ ok: true })

@@ -6,6 +6,12 @@ const email = (process.env.SEED_ADMIN_EMAIL || 'admin@africaenergy.com').toLower
 const password = process.env.SEED_ADMIN_PASSWORD || 'ChangeMe!2026'
 const name = process.env.SEED_ADMIN_NAME || 'Administrateur'
 
+// B10 : en production, refuser le mot de passe par defaut
+if (process.env.NODE_ENV === 'production' && password === 'ChangeMe!2026') {
+  console.error('[seed] FATAL: SEED_ADMIN_PASSWORD non defini en production. Refus de creer un admin avec le mot de passe par defaut.')
+  process.exit(1)
+}
+
 const existing = db.prepare('SELECT id FROM users WHERE email = ?').get(email)
 const now = Date.now()
 if (existing) {

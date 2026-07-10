@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react'
-import { api, getToken, setToken, clearToken } from './api.js'
+import { api, getToken, setToken, clearToken, getRefreshToken, setRefreshToken, clearRefreshToken } from './api.js'
 
 const AuthContext = createContext(null)
 
@@ -15,7 +15,23 @@ export const AuthProvider = ({ children }) => {
       const { user } = await api.get('/api/auth/me')
       setUser(user)
     } catch (e) {
-      if (e.status === 401) { clearToken(); setUser(null) }
+      if (e.status === 401) {
+        // Tenter un refresh avant de deconnecter
+        const rt = getRefreshToken()
+        if (rt) {
+          try {
+            const data = await api.post('/api/auth/refresh', { refreshToken: rt })
+            setToken(data.token)
+            setRefreshToken(data.refreshToken)
+            const me = await api.get('/api/auth/me')
+            setUser(me.user)
+            return
+          } catch {}
+        }
+        clearToken()
+        clearRefreshToken()
+        setUser(null)
+      }
     } finally {
       setLoading(false)
     }
@@ -26,13 +42,15 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password, totp) => {
     const data = await api.post('/api/auth/login', { email, password, totp })
     setToken(data.token)
+    if (data.refreshToken) setRefreshToken(data.refreshToken)
     setUser(data.user)
     return data.user
   }
 
   const logout = async () => {
-    try { await api.post('/api/auth/logout', {}) } catch {}
+    try { await api.post('/api/auth/logout', { refreshToken: getRefreshToken() }) } catch {}
     clearToken()
+    clearRefreshToken()
     setUser(null)
   }
 

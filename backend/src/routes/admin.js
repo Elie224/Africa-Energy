@@ -10,12 +10,15 @@ router.use(requireAuth)
 // ---------- LEADS ----------
 const leadsRouter = Router()
 leadsRouter.get('/', (req, res) => {
-  const { status } = req.query
-  let sql = 'SELECT * FROM leads'
+  const { status, page = 1, limit = 50 } = req.query
+  const lim = Math.min(Math.max(parseInt(limit) || 50, 1), 200)
+  const off = (Math.max(parseInt(page) || 1, 1) - 1) * lim
+  let where = ''
   const params = []
-  if (status) { sql += ' WHERE status = ?'; params.push(status) }
-  sql += ' ORDER BY created_at DESC LIMIT 500'
-  res.json({ items: db.prepare(sql).all(...params) })
+  if (status) { where = ' WHERE status = ?'; params.push(status) }
+  const items = db.prepare(`SELECT * FROM leads${where} ORDER BY created_at DESC LIMIT ? OFFSET ?`).all(...params, lim, off)
+  const { c: total } = db.prepare(`SELECT COUNT(*) c FROM leads${where}`).get(...params)
+  res.json({ items, total, page: parseInt(page) || 1, limit: lim })
 })
 leadsRouter.get('/:id', (req, res) => {
   const row = db.prepare('SELECT * FROM leads WHERE id = ?').get(req.params.id)
@@ -42,7 +45,12 @@ leadsRouter.delete('/:id', requireRole('editor'), (req, res) => {
 leadsRouter.get('/export.csv', requireRole('editor'), (_req, res) => {
   const rows = db.prepare('SELECT * FROM leads ORDER BY created_at DESC').all()
   const headers = ['id','nom','email','telephone','entreprise','produit','message','status','created_at']
-  const esc = (v) => '"' + String(v ?? '').replace(/"/g, '""') + '"'
+  // B17 : anti-injection formule CSV. Si la valeur commence par =, +, -, @ ou \t\r, on la prefixe par \t.
+  const esc = (v) => {
+    let s = String(v ?? '')
+    if (/^[=+\-@\t\r]/.test(s)) s = "'" + s
+    return '"' + s.replace(/"/g, '""') + '"'
+  }
   const lines = [headers.join(',')]
   for (const r of rows) lines.push(headers.map((h) => esc(r[h])).join(','))
   res.setHeader('Content-Type', 'text/csv; charset=utf-8')

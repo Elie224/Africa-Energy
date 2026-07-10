@@ -1,0 +1,14 @@
+{
+  "ceo": {
+    "name": "Jean Baptiste HABA",
+    "role": "Administrateur Général",
+    "phone": "+224 624 251 991",
+    "email": "habajb9211@gmail.com"
+  },
+  "members": [
+    { "name": "Zoumana TRAORÉ", "role": "Secrétaire Général", "phone": "+224 628 953 007", "email": "zoumanazenotraore@gmail.com", "address": "Sonfonia / Cobaya" },
+    { "name": "Ce Philos MAMY", "role": "Responsable Logistique et Transit", "phone": "+224 622 858 976", "email": "cephilos1245@gmail.com", "address": "Tombolia / Kokoma" },
+    { "name": "Djimba SIDIBE", "role": "Assistant Transitaire", "phone": "+224 628 768 169", "email": "ayoubasidibe210@gmail.com", "address": "Kagbelen / Samantra village" },
+    { "name": "Ezechiel Zoma KOIVOGUI", "role": "Assistant Comptable", "phone": "+224 625 413 972", "email": "ezechielesther44@gmail.com", "address": "Lambanyi / Wanidara" }
+  ]
+}

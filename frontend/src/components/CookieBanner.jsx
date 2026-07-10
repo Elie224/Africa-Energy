@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useI18n } from '../i18n/I18nContext.jsx'
 
 const STORAGE_KEY = 'ae.cookieConsent'
@@ -82,7 +83,7 @@ const CookieBanner = () => {
             <h2 className="ae-cookie-title">
               <i className="bi bi-shield-check me-2" aria-hidden="true"></i>{c.title}
             </h2>
-            <p>{c.text} <a href="/politique-de-confidentialite">{c.policy}</a>.</p>
+            <p>{c.text} <Link to="/politique-de-confidentialite">{c.policy}</Link>.</p>
             <div id='ae-cookie-settings'>{showSettings && (
               <div className="ae-cookie-settings">
                 <label className="ae-cookie-row">

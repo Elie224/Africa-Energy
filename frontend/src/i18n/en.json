@@ -21,7 +21,7 @@
     "contact": "Contact",
     "legal": "Legal notice",
     "address": "Dixinn Terrasse, Conakry, Guinea",
-    "phone": "+224 612 36 80 58",
+    "phone": "+224 612 368 058",
     "email": "africaenergysau@gmail.com",
     "rights": "All rights reserved.",
     "servicesFuel": "Fuel distribution",
@@ -138,7 +138,9 @@
       "eng6Title": "Operational excellence",
       "eng6Desc": "Continuous improvement of our processes and logistics.",
       "ctaTitle": "A question about our commitments?",
-      "ctaButton": "Contact us"
+      "ctaButton": "Contact us",
+      "seoTitle": "Quality, Safety and Compliance",
+      "seoDesc": "QHSE commitments, SONAP compliance, OHADA traceability, safety of petroleum operations in Guinea."
     },
     "careers": {
       "noOffersTitle": "Job offers will be published soon",
@@ -152,7 +154,8 @@
       "applyButton": "Apply",
       "seoDesc": "Join Africa Energy SAU. Browse our job offers and apply online in the Guinean petroleum sector.",
       "emptyTitle": "Job offers will be published soon",
-      "emptyDesc": "Our team is growing. New professional opportunities will be announced shortly on this page. Check back regularly to discover our open positions."
+      "emptyDesc": "Our team is growing. New professional opportunities will be announced shortly on this page. Check back regularly to discover our open positions.",
+      "seoTitle": "Careers"
     },
     "contact": {
       "formMessage": "Your message",
@@ -191,7 +194,8 @@
       "seoDesc": "Contact Africa Energy SAU in Conakry. Request a quote for your hydrocarbon needs: gasoil, lubricants, LPG, delivery.",
       "address": "Dixinn Terrasse, Conakry, Guinea",
       "phone": "+224 612 368 058",
-      "email": "africaenergysau@gmail.com"
+      "email": "africaenergysau@gmail.com",
+      "seoTitle": "Contact us"
     },
     "direction": {
       "ceoName": "Jean Baptiste HABA",
