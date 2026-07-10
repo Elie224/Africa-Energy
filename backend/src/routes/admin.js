@@ -9,13 +9,21 @@ router.use(requireAuth)
 
 // ---------- LEADS ----------
 const leadsRouter = Router()
+const LEAD_STATUSES = ['new', 'in_progress', 'done', 'archived']
 leadsRouter.get('/', (req, res) => {
   const { status, page = 1, limit = 50 } = req.query
-  const lim = Math.min(Math.max(parseInt(limit) || 50, 1), 200)
-  const off = (Math.max(parseInt(page) || 1, 1) - 1) * lim
+  // Validation stricte du filtre : seule une whitelist de statuses est acceptee.
+  // Empeche tout tentative d'injection via un status arbitraire.
   let where = ''
   const params = []
-  if (status) { where = ' WHERE status = ?'; params.push(status) }
+  if (status) {
+    if (!LEAD_STATUSES.includes(status)) {
+      return res.status(400).json({ error: 'Statut invalide' })
+    }
+    where = ' WHERE status = ?'; params.push(status)
+  }
+  const lim = Math.min(Math.max(parseInt(limit) || 50, 1), 200)
+  const off = (Math.max(parseInt(page) || 1, 1) - 1) * lim
   const items = db.prepare(`SELECT * FROM leads${where} ORDER BY created_at DESC LIMIT ? OFFSET ?`).all(...params, lim, off)
   const { c: total } = db.prepare(`SELECT COUNT(*) c FROM leads${where}`).get(...params)
   res.json({ items, total, page: parseInt(page) || 1, limit: lim })

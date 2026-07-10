@@ -11,8 +11,33 @@ export const slugify = (s) => String(s || '')
 
 export const now = () => Date.now()
 
+// Garde-fou : tout identifiant SQL injecte via template literal doit passer ce filtre.
+// Format : lettres minuscules, chiffres et underscore uniquement (convention SQL standard).
+// Exemples valides : 'users', 'news', 'audit_logs', 'order_idx'
+// Exemples rejetés : 'users; DROP TABLE', 'users--', 'users/*', 'ORDER BY 1'
+const isSafeIdent = (s) => typeof s === 'string' && /^[a-z_][a-z0-9_]{0,62}$/i.test(s)
+const validateIdents = (table, columns, orderBy) => {
+  if (!isSafeIdent(table)) throw new Error(`Identifiant de table invalide: ${table}`)
+  for (const c of columns) {
+    if (!isSafeIdent(c)) throw new Error(`Identifiant de colonne invalide: ${c}`)
+  }
+  // orderBy peut contenir 'column ASC' ou 'column DESC' (separateur virgule)
+  if (orderBy) {
+    for (const part of orderBy.split(',')) {
+      const ident = part.trim().split(/\s+/)[0]
+      if (!isSafeIdent(ident)) throw new Error(`Identifiant dans orderBy invalide: ${orderBy}`)
+    }
+  }
+}
+
 export const buildCrudRouter = (opts) => {
   const { table, columns, required = [], editable = columns, writeRole = 'writer' } = opts
+  // Defense en profondeur : valider les identifiants meme si on les considere surs (hardcoded).
+  validateIdents(table, columns, opts.orderBy)
+  // Verifier que editable est un sous-ensemble de columns
+  for (const c of editable) {
+    if (!columns.includes(c)) throw new Error(`Colonne editable '${c}' n'est pas dans columns`)
+  }
   const router = Router()
   const allowedWrite = (req, res, next) => {
     const RANK = { super_admin: 4, editor: 3, writer: 2, reader: 1 }
