@@ -3,59 +3,56 @@ import Seo from '../components/Seo.jsx'
 import { useI18n } from '../i18n/I18nContext.jsx'
 import { Link } from 'react-router-dom'
 
+const items = [
+  { icon: 'bi-shield-fill-check', color: 'var(--ae-blue)' },
+  { icon: 'bi-fingerprint', color: 'var(--ae-orange)' },
+  { icon: 'bi-lock-fill', color: 'var(--ae-green)' },
+  { icon: 'bi-people-fill', color: 'var(--ae-gold)' },
+  { icon: 'bi-tree-fill', color: 'var(--ae-green)' },
+  { icon: 'bi-award-fill', color: 'var(--ae-blue)' }
+]
+
+const IconBox = ({ icon, color }) => (
+  <div className="ae-icon-box" style={color ? { background: color } : null}>
+    <i className={'bi ' + icon}></i>
+  </div>
+)
+
 const Engagements = () => {
   const { t } = useI18n()
-  const engagements = [
-    { icon: 'bi-shield-fill-check', title: 'Conformité réglementaire', desc: 'Respect strict des normes OHADA et réglementations en vigueur en Guinée.', color: 'var(--ae-blue)' },
-    { icon: 'bi-graph-up-arrow', title: 'Traçabilité complète', desc: 'Chaque produit est traçable de la source jusqu’à la livraison finale.', color: 'var(--ae-orange)' },
-    { icon: 'bi-lock-fill', title: 'Sécurité des opérations', desc: 'Personnel formé, équipements aux normes, protocoles stricts.', color: 'var(--ae-green)' },
-    { icon: 'bi-people-fill', title: 'Service client exigeant', desc: 'Réactivité, transparence et suivi personnalisé de chaque client.', color: 'var(--ae-gold)' },
-    { icon: 'bi-tree-fill', title: 'Engagement environnemental', desc: 'Démarche responsable pour limiter l’impact environnemental.', color: 'var(--ae-green)' },
-    { icon: 'bi-award-fill', title: 'Excellence opérationnelle', desc: 'Amélioration continue de nos processus et de notre logistique.', color: 'var(--ae-blue)' }
-  ]
-
   return (
     <>
-      <Seo title="Engagements et Conformite" description="Engagements QHSE, conformite SONAP, tracabilite OHADA, securite des operations petrolieres en Guinee." />
+      <Seo title={t('pages.engagements.heroTitle')} description={t('pages.engagements.seoDesc')} />
       <section className="ae-hero" style={{ padding: '80px 0' }}>
         <div className="container text-center">
-          <h1>{t('pages.engagements.heroTitle', 'Qualite, securite et conformite')}</h1>
+          <h1>{t('pages.engagements.heroTitle')}</h1>
           <p className="mt-3" style={{ fontSize: '1.2rem', opacity: 0.95 }}>
-            Qualité, sécurité et conformité au coeur de notre démarche
+            {t('pages.engagements.heroSubtitle')}
           </p>
         </div>
       </section>
-
       <section className="section-padding">
         <div className="container">
-          <div className="row g-4">
-            {engagements.map((e, i) => (
-              <div key={i} className="col-lg-4 col-md-6">
-                <div className="ae-card">
-                  <div className="icon" style={{ background: e.color }}>
-                    <i className={`bi ${e.icon}`}></i>
-                  </div>
-                  <h4>{e.title}</h4>
-                  <p>{e.desc}</p>
+          <div className="row g-3">
+            {items.map((it, idx) => (
+              <div key={idx} className="col-lg-4 col-md-6">
+                <div className="ae-card ae-card--compact text-center">
+                  <IconBox icon={it.icon} color={it.color} />
+                  <h4 className="mb-2">{t('pages.engagements.eng' + (idx + 1) + 'Title')}</h4>
+                  <p className="text-muted small mb-0">{t('pages.engagements.eng' + (idx + 1) + 'Desc')}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
       <section className="section-padding text-center" style={{ backgroundColor: 'var(--ae-light)' }}>
         <div className="container">
-          <h2 className="mb-4">Une question sur nos engagements ?</h2>
-          <Link to="/contact" className="btn btn-ae-primary btn-lg">Contactez-nous</Link>
+          <h2 className="mb-4">{t('pages.engagements.ctaTitle')}</h2>
+          <Link to="/contact" className="btn btn-ae-primary btn-lg">{t('pages.engagements.ctaButton')}</Link>
         </div>
       </section>
     </>
   )
 }
-
 export default Engagements
-
-
-
-

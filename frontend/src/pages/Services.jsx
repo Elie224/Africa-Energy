@@ -1,64 +1,56 @@
 import React from 'react'
 import Seo from '../components/Seo.jsx'
 import { Link } from 'react-router-dom'
+import { useI18n } from '../i18n/I18nContext.jsx'
 
-const iconStyle = {
-  width: 72,
-  height: 72,
-  borderRadius: 16,
-  background: 'linear-gradient(135deg, var(--ae-orange), var(--ae-gold))',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: '#fff',
-  fontSize: 34,
-  margin: '0 auto 20px',
-  boxShadow: '0 8px 22px rgba(243,146,0,0.28)'
-}
+const products = [
+  { icon: 'bi-fuel-pump-diesel-fill', key: 'product1' },
+  { icon: 'bi-fuel-pump-fill', key: 'product2' },
+  { icon: 'bi-droplet-fill', key: 'product3' },
+  { icon: 'bi-fire', key: 'product4' },
+  { icon: 'bi-droplet-half', key: 'product5' },
+  { icon: 'bi-wind', key: 'product6' }
+]
+const services = [
+  { icon: 'bi-truck', key: 'service1' },
+  { icon: 'bi-patch-check-fill', key: 'service2' },
+  { icon: 'bi-graph-up-arrow', key: 'service3' },
+  { icon: 'bi-headset', key: 'service4' }
+]
+
+const IconBox = ({ icon }) => (
+  <div className="ae-icon-box">
+    <i className={'bi ' + icon}></i>
+  </div>
+)
 
 const Services = () => {
-  const products = [
-    { icon: 'bi-fuel-pump-diesel', title: 'Gasoil / Diesel', desc: 'Carburant de qualité pour véhicules et industries. Disponible en vrac et détaillé.' },
-    { icon: 'bi-fuel-pump', title: 'Essence Super', desc: 'Essence haute performance pour véhicules particuliers et professionnels.' },
-    { icon: 'bi-droplet-fill', title: 'Pétrole lampant', desc: 'Pour usages domestiques, éclairage et certaines activités industrielles.' },
-    { icon: 'bi-fire', title: 'Fuel lourd (HFO)', desc: 'Pour centrales thermiques, cimenteries et industries lourdes.' },
-    { icon: 'bi-droplet-half', title: 'Lubrifiants & huiles', desc: 'Gamme complète pour automobiles, engins miniers et équipements industriels.' },
-    { icon: 'bi-wind', title: 'Gaz GPL & dérivés', desc: 'Gaz propane et butane pour ménages, restaurants et industries.' }
-  ]
-
-  const services = [
-    { icon: 'bi-truck', title: 'Livraison rapide', desc: 'Livraison sécurisée 24/7 sur tous vos sites.' },
-    { icon: 'bi-shield-check', title: 'Conformité SONAP', desc: 'Tous nos produits sont certifiés et traçables.' },
-    { icon: 'bi-bar-chart-line', title: 'Gestion de stocks$1', desc: 'Suivi en temps réel et traçabilité complète.' },
-    { icon: 'bi-people', title: 'Conseil & accompagnement', desc: 'Expertise sectorielle pour optimiser vos approvisionnements.' }
-  ]
-
+  const { t } = useI18n()
   return (
     <>
-      <Seo title="Produits et Services" description="Catalogue complet : gasoil, essence super, petrole lampant, fuel lourd HFO, lubrifiants, GPL. Livraison rapide, conformite SONAP, gestion de stocks." />
-      <section className='ae-hero' style={{ padding: '80px 0' }}>
-        <div className='container text-center'>
-          <h1>Produits & Services</h1>
-          <p className='mt-3' style={{ fontSize: '1.2rem', opacity: 0.95 }}>
-            Une offre complète pour répondre à tous vos besoins énergétiques
+      <Seo title={t('pages.services.seoTitle')} description={t('pages.services.seoDesc')} />
+      <section className="ae-hero" style={{ padding: '80px 0' }}>
+        <div className="container text-center">
+          <h1>{t('pages.services.heroTitle')}</h1>
+          <p className="mt-3" style={{ fontSize: '1.2rem', opacity: 0.95 }}>
+            {t('pages.services.heroSubtitle')}
           </p>
         </div>
       </section>
 
-      <section className='section-padding'>
-        <div className='container'>
-          <div className='section-title'>
-            <h2>Nos produits</h2>
-            <p>Une gamme complète de produits pétroliers et dérivés, certifiée SONAP.</p>
+      <section className="section-padding">
+        <div className="container">
+          <div className="section-title">
+            <h2>{t('pages.services.productsTitle')}</h2>
+            <p>{t('pages.services.productsSubtitle')}</p>
           </div>
-
-          <div className='row g-4'>
-            {products.map((p, i) => (
-              <div key={i} className='col-lg-4 col-md-6'>
-                <div className='ae-card h-100 text-center'>
-                  <div style={iconStyle}><i className={`bi ${p.icon}`}></i></div>
-                  <h4 className='mb-3'>{p.title}</h4>
-                  <p className='mb-0'>{p.desc}</p>
+          <div className="row g-3">
+            {products.map((p) => (
+              <div key={p.key} className="col-lg-4 col-md-6">
+                <div className="ae-card ae-card--compact h-100 text-center">
+                  <IconBox icon={p.icon} />
+                  <h4 className="mb-2">{t('pages.services.' + p.key + 'Title')}</h4>
+                  <p className="mb-0 text-muted small">{t('pages.services.' + p.key + 'Desc')}</p>
                 </div>
               </div>
             ))}
@@ -66,20 +58,19 @@ const Services = () => {
         </div>
       </section>
 
-      <section className='section-padding' style={{ backgroundColor: 'var(--ae-light)' }}>
-        <div className='container'>
-          <div className='section-title'>
-            <h2>Nos services</h2>
-            <p>Au-delà des produits, nous vous accompagnons avec des services sur-mesure.</p>
+      <section className="section-padding" style={{ backgroundColor: 'var(--ae-light)' }}>
+        <div className="container">
+          <div className="section-title">
+            <h2>{t('pages.services.servicesTitle')}</h2>
+            <p>{t('pages.services.servicesSubtitle')}</p>
           </div>
-
-          <div className='row g-4'>
-            {services.map((s, i) => (
-              <div key={i} className='col-lg-3 col-md-6'>
-                <div className='ae-card text-center'>
-                  <div className='icon mx-auto'><i className={s.icon}></i></div>
-                  <h5>{s.title}</h5>
-                  <p className='small'>{s.desc}</p>
+          <div className="row g-3">
+            {services.map((s) => (
+              <div key={s.key} className="col-lg-3 col-md-6">
+                <div className="ae-card ae-card--compact text-center">
+                  <IconBox icon={s.icon} />
+                  <h5 className="mb-1">{t('pages.services.' + s.key + 'Title')}</h5>
+                  <p className="small text-muted mb-0">{t('pages.services.' + s.key + 'Desc')}</p>
                 </div>
               </div>
             ))}
@@ -87,11 +78,11 @@ const Services = () => {
         </div>
       </section>
 
-      <section className='section-padding text-center'>
-        <div className='container'>
-          <h2 className='mb-4'>Besoin d'un devis personnalisé ?</h2>
-          <Link to='/contact' className='btn btn-ae-primary btn-lg'>
-            Demander un devis <i className='bi bi-arrow-right ms-2'></i>
+      <section className="section-padding text-center">
+        <div className="container">
+          <h2 className="mb-4">{t('pages.services.ctaTitle')}</h2>
+          <Link to="/contact" className="btn btn-ae-primary btn-lg">
+            {t('pages.services.ctaButton')} <i className="bi bi-arrow-right ms-2"></i>
           </Link>
         </div>
       </section>
@@ -100,7 +91,3 @@ const Services = () => {
 }
 
 export default Services
-
-
-
-

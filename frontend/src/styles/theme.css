@@ -303,3 +303,153 @@ a {
 .animate-fadeInUp {
   animation: fadeInUp 0.8s ease-out;
 }
+
+
+/* ============================================
+   Language switcher (FR/EN)
+   ============================================ */
+.ae-lang-switch {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+.ae-lang-switch button {
+  display: inline-block;
+  background: transparent;
+  color: #0B2A5B;
+  border: 1px solid rgba(11, 42, 91, 0.25);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  line-height: 1.2;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.ae-lang-switch button:hover {
+  border-color: #0B2A5B;
+  color: #0B2A5B;
+}
+.ae-lang-switch button.is-active {
+  background: #0B2A5B;
+  color: #fff;
+  border-color: #0B2A5B;
+}
+.ae-lang-switch--dark button {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.ae-lang-switch--dark button:hover {
+  border-color: #fff;
+  color: #fff;
+}
+.ae-lang-switch--dark button.is-active {
+  background: #F39200;
+  color: #fff;
+  border-color: #F39200;
+}
+
+/* ============================================
+   Navbar : eviter le wrap, espacer proprement
+   ============================================ */
+.ae-navbar .container {
+  max-width: 1400px;
+}
+.ae-navbar .navbar-nav {
+  gap: 4px;
+}
+.ae-navbar .nav-link {
+  margin: 0;
+  padding: 8px 10px !important;
+  font-size: 14px;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+.ae-navbar .navbar-brand {
+  margin-right: 16px;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .ae-navbar .nav-link { font-size: 13px; padding: 8px 8px !important; }
+}
+@media (max-width: 991px) {
+  .ae-navbar .navbar-nav { padding-top: 12px; }
+  .ae-navbar .nav-link { padding: 10px 0 !important; }
+  .ae-lang-switch { margin: 8px 0; }
+}
+
+.ae-navbar .nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.ae-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 4px;
+  height: 2px;
+  background: var(--ae-orange);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+.ae-navbar .nav-link:hover::after {
+  transform: scaleX(1);
+}
+.ae-navbar .nav-link.active {
+  color: var(--ae-blue-dark) !important;
+  font-weight: 700;
+}
+.ae-navbar .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.ae-navbar .nav-item--lang { margin-left: 6px; padding-left: 12px; border-left: 1px solid rgba(11,42,91,0.12); }
+.ae-navbar .nav-item--cta { margin-left: 6px; }
+@media (max-width: 991px) {
+  .ae-navbar .nav-item--lang { margin-left: 0; padding-left: 0; border-left: none; }
+}
+
+
+/* ============================================
+   Cards compactes (Services, Engagements, etc.)
+   ============================================ */
+.ae-card--compact {
+  padding: 22px 20px;
+}
+.ae-card--compact h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.ae-card--compact h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ae-blue-dark);
+  margin-bottom: 6px;
+}
+.ae-card--compact p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.ae-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--ae-orange), var(--ae-gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 26px;
+  margin: 0 auto 14px;
+  box-shadow: 0 4px 12px rgba(243, 146, 0, 0.25);
+}
+.ae-icon-box i { line-height: 1; }

@@ -12,8 +12,8 @@ const Seo = ({ title, description, keywords, ogImage, canonicalPath }) => {
     const full = title ? `${title} · ${BASE_TITLE}` : BASE_TITLE
     document.title = full
 
-    setMeta('description', description || "Africa Energy SAU - Distribution de produits petroliers et derives en Guinee. Gasoil, essence, lubrifiants, GPL, HFO. Conformite SONAP, livraison rapide sur Conakry et Simandou.")
-    setMeta('keywords', keywords || "africa energy, hydrocarbures guinee, gasoil conakry, distribution petroliere, lubrifiants, GPL, HFO, SONAP")
+    setMeta('description', description || "Africa Energy SAU • Distribution de produits pétroliers et dérivés en Guinée. Gasoil, essence, lubrifiants, GPL, HFO. Conformité SONAP, livraison rapide sur Conakry et Simandou.")
+    setMeta('keywords', keywords || "africa energy, hydrocarbures guinée, gasoil conakry, distribution pétrolière, lubrifiants, GPL, HFO, SONAP")
     setOg('og:title', full)
     setOg('og:description', description || '')
     setOg('og:type', 'website')

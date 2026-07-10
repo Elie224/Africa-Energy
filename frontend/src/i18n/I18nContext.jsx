@@ -44,11 +44,18 @@ export const I18nProvider = ({ children }) => {
   }, [])
 
   const t = useCallback((key, fallback) => {
+    if (!key) return ''
     const v = getByPath(DICTS[lang], key)
     if (v !== undefined) return v
     const fr = getByPath(DICTS.fr, key)
     if (fr !== undefined) return fr
-    return fallback !== undefined ? fallback : key
+    if (fallback !== undefined) return fallback
+    // Securite : ne JAMAIS afficher une cle brute du type 'pages.news.heroSubtitle'.
+    // En dev on prefere un placeholder lisible pour reperer la cle manquante.
+    if (typeof window !== 'undefined' && window.location && window.location.hostname === 'localhost') {
+      return '[' + key + ']'
+    }
+    return ''
   }, [lang])
 
   return (
