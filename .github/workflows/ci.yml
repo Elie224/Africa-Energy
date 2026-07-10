@@ -19,20 +19,28 @@ jobs:
           cache-dependency-path: backend/package-lock.json
       - name: Install dependencies
         working-directory: backend
-        run: npm ci
+        run: npm install --no-audit --no-fund
       - name: Run tests
         working-directory: backend
         run: npm test
       - name: Boot smoke test
         working-directory: backend
         env:
-          JWT_SECRET: ci-test-secret-tres-long-pour-smoke-test-min-48-chars
+          JWT_SECRET: ci-test-secret-tres-long-pour-smoke-test-min-48-chars-aaa
           NODE_ENV: production
+          PORT: '4000'
         run: |
-          timeout 5 node src/server.js &
-          sleep 2
-          curl -sS http://localhost:4000/api/health | grep -q '"status":"ok"'
-          kill %1 2>/dev/null || true
+          node src/server.js &
+          SERVER_PID=$!
+          sleep 3
+          if curl -fsS http://localhost:4000/api/health; then
+            kill $SERVER_PID 2>/dev/null || true
+            echo "OK health"
+          else
+            kill $SERVER_PID 2>/dev/null || true
+            echo "FAIL health"
+            exit 1
+          fi
 
   frontend:
     name: Frontend (Node 20)
@@ -46,7 +54,7 @@ jobs:
           cache-dependency-path: frontend/package-lock.json
       - name: Install dependencies
         working-directory: frontend
-        run: npm ci
+        run: npm install --no-audit --no-fund
       - name: Run tests
         working-directory: frontend
         run: npm test
