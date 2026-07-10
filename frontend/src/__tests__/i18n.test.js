@@ -49,10 +49,12 @@ describe('i18n FR/EN coverage', () => {
     }
   })
 
-  it('les balises hreflang sont coherentes entre FR et EN', () => {
+  it('les pages ont des seoTitle distincts en FR et EN (traduction)', () => {
+    // FR et EN doivent avoir des seoTitle DIFFERENTS (traduction), pas identiques
     expect(fr.pages.home.seoTitle).toBeTruthy()
     expect(en.pages.home.seoTitle).toBeTruthy()
-    expect(fr.pages.contact.seoTitle).toBe(en.pages.contact.seoTitle)
+    expect(fr.pages.home.seoTitle).not.toBe(en.pages.home.seoTitle)
+    expect(fr.pages.services.seoTitle).not.toBe(en.pages.services.seoTitle)
   })
 
   it('les telephones ont un format international', () => {
