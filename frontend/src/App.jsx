@@ -12,7 +12,9 @@ import Contact from './pages/Contact'
 import Direction from './pages/Direction'
 import NotFound from './pages/NotFound'
 import Legal from './pages/Legal'
+import Confidentialite from './pages/Confidentialite'
 import AdminApp from './admin/AdminApp'
+import CookieBanner from './components/CookieBanner'
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
       <Route path="/admin/*" element={<AdminApp />} />
       <Route path="*" element={
         <div className="App">
+          <CookieBanner />
           <Navbar />
           <main>
             <Routes>
@@ -32,6 +35,7 @@ function App() {
               <Route path="/direction" element={<Direction />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/mentions-legales" element={<Legal />} />
+              <Route path="/politique-de-confidentialite" element={<Confidentialite />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

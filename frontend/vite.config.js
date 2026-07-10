@@ -9,18 +9,18 @@ const securityHeaders = {
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
   'Content-Security-Policy': [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com",
+    "script-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com data:",
     "img-src 'self' data: blob: https:",
     "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com ws: wss:",
     "frame-ancestors 'self'",
     "base-uri 'self'",
-    "form-action 'self'"
+    "form-action 'self'",
+    'upgrade-insecure-requests'
   ].join('; ')
 }
 
-// Force charset=utf-8 sur les reponses text/* via un middleware.
 const charsetPlugin = () => ({
   name: 'force-utf8-charset',
   configureServer(server) {
@@ -51,18 +51,6 @@ const charsetPlugin = () => ({
 
 export default defineConfig({
   plugins: [react(), charsetPlugin()],
-  server: {
-    port: 5173,
-    open: false,
-    headers: securityHeaders,
-    proxy: {
-      '/api': { target: 'http://localhost:4000', changeOrigin: true },
-      '/uploads': { target: 'http://localhost:4000', changeOrigin: true }
-    }
-  },
-  preview: {
-    port: 4173,
-    open: false,
-    headers: securityHeaders
-  }
+  server: { port: 5173, open: false, headers: securityHeaders, proxy: { '/api': { target: 'http://localhost:4000', changeOrigin: true }, '/uploads': { target: 'http://localhost:4000', changeOrigin: true } } },
+  preview: { port: 4173, open: false, headers: securityHeaders }
 })

@@ -14,26 +14,26 @@ const Home = () => {
           <div className="row align-items-center">
             <div className="col-lg-7 animate-fadeInUp">
               <span className="badge mb-3 px-3 py-2" style={{ backgroundColor: 'rgba(243, 146, 0, 0.2)', color: '#F39200', fontWeight: 600 }}>
-                <i className="bi bi-fuel-pump me-2"></i>{t('pages.home.heroBadge')}
+                <i className="bi bi-fuel-pump me-2" aria-hidden="true"></i>{t('pages.home.heroBadge')}
               </span>
               <h1>
-                {t('pages.home.heroTitle')} <span className="highlight">{t('pages.home.heroHighlight')}</span> {t('pages.home.heroTail', "l'Afrique")}
+                {t('pages.home.heroTitle')} <span className="highlight">{t('pages.home.heroHighlight')}</span> {t('pages.home.heroTail')}
               </h1>
               <p>
                 {t('pages.home.heroSubtitle')}
               </p>
               <div className="d-flex gap-3 flex-wrap">
                 <Link to="/contact" className="btn btn-ae-primary">
-                  <i className="bi bi-envelope-paper me-2"></i>{t('pages.home.ctaQuote')}
+                  <i className="bi bi-envelope-paper me-2" aria-hidden="true"></i>{t('pages.home.ctaQuote')}
                 </Link>
                 <Link to="/a-propos" className="btn btn-outline-light rounded-pill px-4 py-2">
-                  {t('pages.home.ctaDiscover', "Decouvrir l'entreprise")} <i className="bi bi-arrow-right ms-2"></i>
+                  {t('pages.home.ctaDiscover')} <i className="bi bi-arrow-right ms-2" aria-hidden="true"></i>
                 </Link>
               </div>
             </div>
             <div className="col-lg-5 d-none d-lg-block text-center">
               <div style={{ fontSize: '180px', opacity: 0.15, color: '#F39200' }}>
-                <i className="bi bi-fuel-pump-diesel"></i>
+                <i className="bi bi-fuel-pump-diesel" aria-hidden="true"></i>
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@ const Home = () => {
         <div className="container">
           <div className="section-title">
             <h2>{t('pages.home.offerTitle')}</h2>
-            <p>{t('pages.home.offerSubtitle', 'Une gamme complete de produits petroliers et services adaptes a chaque secteur d\'activite.')}</p>
+            <p>{t('pages.home.offerSubtitle')}</p>
           </div>
 
           <div className="row g-4">
@@ -92,7 +92,7 @@ const Home = () => {
               <div className="ae-card">
                 <div className="icon"><i className="bi bi-droplet-half"></i></div>
                 <h4>{t('pages.home.offer2Title')}</h4>
-                <p>{t('pages.home.offer2Desc', 'Huiles et lubrifiants specialises pour l\'automobile, l\'industrie et les mines.')}</p>
+                <p>{t('pages.home.offer2Desc')}</p>
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
@@ -134,7 +134,7 @@ const Home = () => {
               </div>
               <div className="d-flex gap-3 mb-4">
                 <div style={{ minWidth: 50, height: 50, background: 'var(--ae-blue)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: 24 }}>
-                  <i className="bi bi-file-earmark-check"></i>
+                  <i className="bi bi-file-earmark-check" aria-hidden="true"></i>
                 </div>
                 <div>
                   <h5>{t('pages.home.why2Title')}</h5>
@@ -146,7 +146,7 @@ const Home = () => {
             <div className="col-lg-6">
               <div className="d-flex gap-3 mb-4">
                 <div style={{ minWidth: 50, height: 50, background: 'var(--ae-green)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: 24 }}>
-                  <i className="bi bi-truck-front"></i>
+                  <i className="bi bi-truck-front" aria-hidden="true"></i>
                 </div>
                 <div>
                   <h5>{t('pages.home.why3Title')}</h5>
@@ -155,7 +155,7 @@ const Home = () => {
               </div>
               <div className="d-flex gap-3 mb-4">
                 <div style={{ minWidth: 50, height: 50, background: 'var(--ae-gold)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: 24 }}>
-                  <i className="bi bi-hand-thumbs-up"></i>
+                  <i className="bi bi-hand-thumbs-up" aria-hidden="true"></i>
                 </div>
                 <div>
                   <h5>{t('pages.home.why4Title')}</h5>
@@ -172,34 +172,34 @@ const Home = () => {
         <div className="container">
           <div className="section-title">
             <h2>{t('pages.home.sectorsTitle')}</h2>
-            <p>{t('pages.home.sectorsSubtitle', 'Nous accompagnons les acteurs majeurs de l\'economie guineenne.')}</p>
+            <p>{t('pages.home.sectorsSubtitle')}</p>
           </div>
 
           <div className="row g-4 text-center">
             <div className="col-lg-3 col-md-6">
               <div className="p-4 h-100" style={{ borderRadius: 12, background: 'linear-gradient(135deg, #0B2A5B, #1E5BB8)', color: 'white' }}>
-                <i className="bi bi-gem fs-1 mb-3 d-block" style={{ color: 'var(--ae-orange)' }}></i>
+                <i className="bi bi-gem fs-1 mb-3 d-block" aria-hidden="true" style={{ color: 'var(--ae-orange)' }}></i>
                 <h5 className="text-white">{t('pages.home.sector1')}</h5>
                 <p className="mb-0" style={{ fontSize: '0.9rem', opacity: 0.9 }}>{t('pages.home.sector1Desc')}</p>
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
               <div className="p-4 h-100" style={{ borderRadius: 12, background: 'linear-gradient(135deg, #F39200, #D4A017)', color: 'white' }}>
-                <i className="bi bi-cone-striped fs-1 mb-3 d-block"></i>
+                <i className="bi bi-cone-striped fs-1 mb-3 d-block" aria-hidden="true"></i>
                 <h5 className="text-white">{t('pages.home.sector2')}</h5>
                 <p className="mb-0" style={{ fontSize: '0.9rem', opacity: 0.9 }}>{t('pages.home.sector2Desc')}</p>
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
               <div className="p-4 h-100" style={{ borderRadius: 12, background: 'linear-gradient(135deg, #2E7D32, #4CAF50)', color: 'white' }}>
-                <i className="bi bi-building fs-1 mb-3 d-block"></i>
+                <i className="bi bi-building fs-1 mb-3 d-block" aria-hidden="true"></i>
                 <h5 className="text-white">{t('pages.home.sector3')}</h5>
                 <p className="mb-0" style={{ fontSize: '0.9rem', opacity: 0.9 }}>{t('pages.home.sector3Desc')}</p>
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
               <div className="p-4 h-100" style={{ borderRadius: 12, background: 'linear-gradient(135deg, #6B7280, #374151)', color: 'white' }}>
-                <i className="bi bi-shop fs-1 mb-3 d-block"></i>
+                <i className="bi bi-shop fs-1 mb-3 d-block" aria-hidden="true"></i>
                 <h5 className="text-white">{t('pages.home.sector4')}</h5>
                 <p className="mb-0" style={{ fontSize: '0.9rem', opacity: 0.9 }}>{t('pages.home.sector4Desc')}</p>
               </div>
@@ -216,7 +216,7 @@ const Home = () => {
             {t('pages.home.ctaSubtitle')}
           </p>
           <Link to="/contact" className="btn btn-ae-primary btn-lg">
-            <i className="bi bi-telephone-fill me-2"></i>{t('pages.home.ctaContact')}
+            <i className="bi bi-telephone-fill me-2" aria-hidden="true"></i>{t('pages.home.ctaContact')}
           </Link>
         </div>
       </section>

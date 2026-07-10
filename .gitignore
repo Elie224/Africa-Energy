@@ -32,3 +32,8 @@ Thumbs.db
 
 # Codex (tooling)
 .codex/
+
+# Documents commerciaux (livrables externes, pas du code)
+"PROPOSITION COMMERCIALE.docx"
+"PROPOSITION COMMERCIALE.pdf"
+/PROPOSITION*

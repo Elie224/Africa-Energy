@@ -5,7 +5,6 @@ import App from './App.jsx'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import './styles/theme.css'
 import { I18nProvider } from './i18n/I18nContext.jsx'
 import './styles/direction.css'

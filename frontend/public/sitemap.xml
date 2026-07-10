@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://africaenergy.com/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://africaenergy.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://africaenergy.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://africaenergy.com/" />
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://africaenergy.com/a-propos</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://africaenergy.com/a-propos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://africaenergy.com/a-propos" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://africaenergy.com/a-propos" />
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://africaenergy.com/produits-services</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://africaenergy.com/produits-services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://africaenergy.com/produits-services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://africaenergy.com/produits-services" />
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://africaenergy.com/engagements</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://africaenergy.com/engagements" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://africaenergy.com/engagements" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://africaenergy.com/engagements" />
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://africaenergy.com/actualites</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://africaenergy.com/actualites" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://africaenergy.com/actualites" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://africaenergy.com/actualites" />
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://africaenergy.com/carrieres</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://africaenergy.com/carrieres" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://africaenergy.com/carrieres" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://africaenergy.com/carrieres" />
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://africaenergy.com/direction</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://africaenergy.com/direction" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://africaenergy.com/direction" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://africaenergy.com/direction" />
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://africaenergy.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://africaenergy.com/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://africaenergy.com/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://africaenergy.com/contact" />
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://africaenergy.com/mentions-legales</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://africaenergy.com/mentions-legales" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://africaenergy.com/mentions-legales" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://africaenergy.com/mentions-legales" />
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://africaenergy.com/politique-de-confidentialite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://africaenergy.com/politique-de-confidentialite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://africaenergy.com/politique-de-confidentialite" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://africaenergy.com/politique-de-confidentialite" />
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

@@ -453,3 +453,125 @@ a {
   box-shadow: 0 4px 12px rgba(243, 146, 0, 0.25);
 }
 .ae-icon-box i { line-height: 1; }
+
+
+/* Respect des preferences utilisateur */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ============================================
+   Cookie banner RGPD
+   ============================================ */
+.ae-cookie-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1090;
+  pointer-events: none;
+}
+.ae-cookie-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  border-top: 4px solid #F39200;
+  z-index: 1100;
+  max-width: 720px;
+  margin: 0 auto;
+  animation: cookieSlideUp 0.35s ease-out;
+}
+@keyframes cookieSlideUp {
+  from { transform: translateY(120%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.ae-cookie-inner {
+  padding: 18px 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+}
+.ae-cookie-text { flex: 1 1 360px; }
+.ae-cookie-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0B2A5B;
+  margin-bottom: 4px;
+}
+.ae-cookie-text p {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.45;
+}
+.ae-cookie-text p a { color: #1E5BB8; text-decoration: underline; }
+.ae-cookie-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
+.ae-cookie-actions .btn-link {
+  color: #0B2A5B;
+  text-decoration: none;
+  font-size: 0.82rem;
+  padding: 4px 8px;
+}
+.ae-cookie-settings {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  background: #F5F7FA;
+  border-radius: 8px;
+}
+.ae-cookie-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.ae-cookie-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2E7D32;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  z-index: 1100;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  animation: cookieSlideUp 0.3s ease-out;
+}
+@media (max-width: 600px) {
+  .ae-cookie-inner { flex-direction: column; align-items: stretch; }
+  .ae-cookie-actions { justify-content: flex-end; }
+}
+
+/* ============================================
+   Focus visible global (a11y)
+   ============================================ */
+:focus-visible {
+  outline: 3px solid #F39200;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+button:focus-visible, a:focus-visible {
+  outline: 3px solid #F39200;
+  outline-offset: 3px;
+}
