@@ -49,7 +49,7 @@ const StatBlock = ({ value, suffix, label }) => (
 )
 
 const Home = () => {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
   return (
     <>
       <Seo title={t('pages.home.seoTitle')} description={t('pages.home.seoDesc')} />
@@ -64,7 +64,9 @@ const Home = () => {
                 <i className='bi bi-fuel-pump me-2' aria-hidden='true'></i>{t('pages.home.heroBadge')}
               </span>
                 <h1>
-                  {t('pages.home.heroTitle')} <span className="highlight">{t('pages.home.heroHighlight')}</span> {t('pages.home.heroTail')}
+                  {lang === 'fr'
+                    ? <>{t('pages.home.heroTitle')} <span className="highlight">{t('pages.home.heroHighlight')}</span> {t('pages.home.heroTail')}</>
+                    : t('pages.home.heroTitle')}
                 </h1>
                 <p className='ae-hero__subtitle'>
                   {t('pages.home.heroSubtitle')}

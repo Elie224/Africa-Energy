@@ -253,7 +253,7 @@
 .ae-hero-simple h1 {
   max-width: 12ch;
   margin: 0 auto 20px;
-  font-size: clamp(2.4rem, 5vw, 5rem);
+  font-size: clamp(2.2rem, 4.4vw, 4.4rem);
   font-weight: 900;
   line-height: 1.02;
   letter-spacing: -0.04em;
@@ -334,7 +334,7 @@
   .ae-hero-simple.ae-hero--inner { padding: 62px 0 50px; }
   .ae-hero-simple h1 {
     max-width: 11ch;
-    font-size: clamp(2rem, 10vw, 3rem);
+    font-size: clamp(1.9rem, 8.8vw, 2.7rem);
   }
   .ae-hero-simple .ae-hero__subtitle {
     font-size: 1rem;
