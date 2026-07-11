@@ -232,6 +232,10 @@
   display: flex;
   align-items: center;
 }
+.ae-hero-simple.ae-hero--inner {
+  min-height: auto;
+  padding: 84px 0 72px;
+}
 .ae-hero-spotlight {
   position: absolute;
   inset: 0;
@@ -311,12 +315,14 @@
   .ae-service-card .ae-card__icon,
   .ae-service-card .ae-icon-box { width: 76px; height: 76px; font-size: 34px; }
   .ae-hero-simple { min-height: auto; padding: 84px 0 64px; }
+  .ae-hero-simple.ae-hero--inner { padding: 62px 0 50px; }
   .ae-hero__pills { gap: 8px; }
   .ae-hero__pill { font-size: 12.5px; padding: 7px 12px; }
 }
 @media (max-width: 575px) {
   .section-padding { padding: 64px 0; }
   .ae-hero-simple { padding: 74px 0 56px; }
+  .ae-hero-simple.ae-hero--inner { padding: 54px 0 42px; }
 }
 
 @media (max-width: 991px) {

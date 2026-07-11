@@ -9,7 +9,7 @@ import React from 'react'
     - kicker (string, small uppercase label above title)
 */
 const PageHero = ({ title, subtitle, kicker, breadcrumb }) => (
-  <section className='ae-hero-simple'>
+  <section className='ae-hero-simple ae-hero--inner'>
     <div className='container text-center'>
       {breadcrumb && (
         <nav className='ae-breadcrumb' aria-label='breadcrumb'>
