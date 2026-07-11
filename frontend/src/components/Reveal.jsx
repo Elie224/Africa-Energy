@@ -1,4 +1,4 @@
-import { useInView } from '../hooks/useInView.js'
+import { useInView } from '../lib/hooks/useInView.js'
 
 /**
  * Reveal-on-scroll wrapper. Applies the className (e.g. "ae-fade-up") when
