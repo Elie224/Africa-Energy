@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { api } from '../lib/api.js'
+import { assetUrl } from '../../lib/apiBase.js'
 
 const fmt = (n) => n < 1024 ? n + ' o' : (n / 1024).toFixed(1) + ' Ko'
 const fmtDate = (ts) => new Date(ts).toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' })
@@ -55,12 +56,12 @@ const Media = () => {
             <tbody>
               {items.map((m) => (
                 <tr key={m.id}>
-                  <td>{m.mime?.startsWith('image/') ? <img src={m.url} alt="" style={{ width: 60, height: 40, objectFit: 'cover', borderRadius: 4 }} /> : <i className="bi bi-file-earmark fs-3"></i>}</td>
+                  <td>{m.mime?.startsWith('image/') ? <img src={assetUrl(m.url)} alt="" style={{ width: 60, height: 40, objectFit: 'cover', borderRadius: 4 }} /> : <i className="bi bi-file-earmark fs-3"></i>}</td>
                   <td>{m.original_name || m.filename}</td>
                   <td className="small text-muted">{m.mime}</td>
                   <td className="small">{fmt(m.size)}</td>
                   <td className="small text-muted">{fmtDate(m.created_at)}</td>
-                  <td><input className="form-control form-control-sm" readOnly value={m.url} onFocus={(e) => e.target.select()} style={{ maxWidth: 280 }} /></td>
+                  <td><input className="form-control form-control-sm" readOnly value={assetUrl(m.url)} onFocus={(e) => e.target.select()} style={{ maxWidth: 280 }} /></td>
                   <td><button className="ae-btn small danger" onClick={() => del(m)}><i className="bi bi-trash"></i></button></td>
                 </tr>
               ))}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PageHero from '../components/PageHero.jsx'
 import Seo from '../components/Seo.jsx'
 import { useI18n } from '../i18n/I18nContext.jsx'
+import { apiUrl } from '../lib/apiBase.js'
 
 const Careers = () => {
   const { t } = useI18n()
@@ -10,7 +11,7 @@ const Careers = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await fetch('/api/public/jobs')
+        const res = await fetch(apiUrl('/api/public/jobs'))
         if (res.ok) {
           const data = await res.json()
           setJobs(data)

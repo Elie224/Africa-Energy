@@ -1,0 +1,22 @@
+app = "africa-energy-api-kouro"
+primary_region = "cdg"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  NODE_ENV = "production"
+  DB_PATH = "/data/africa-energy.db"
+  UPLOADS_DIR = "/data/uploads"
+
+[http_service]
+  internal_port = 4000
+  force_https = true
+  auto_start_machines = true
+  auto_stop_machines = "stop"
+  min_machines_running = 1
+  processes = ["app"]
+
+[[mounts]]
+  source = "africa_energy_data"
+  destination = "/data"

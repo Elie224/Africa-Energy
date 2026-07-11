@@ -122,9 +122,22 @@ Points cles :
 
 ## Deploiement production
 
+### Option 1 - serveur unique Docker
+
 1. **Certificats TLS** : Let's Encrypt via certbot, stocker dans `/etc/ssl/`
 2. **DNS** : `africaenergy.com` et `www.africaenergy.com` pointent vers le serveur
 3. **Env** : `cp backend/.env.example backend/.env` + remplir `JWT_SECRET`, `SMTP_*`
 4. **Premier demarrage** : `docker compose up -d` puis `docker compose exec api npm run seed`
 5. **Connexion admin** : `https://africaenergy.com/admin` (credentials du `.env`)
 6. **Activer 2FA** : obligatoire apres la 1ere connexion
+
+### Option 2 - backend Fly.io + frontend Netlify
+
+1. **Backend Fly.io** : deployer le dossier `backend/` avec `backend/fly.toml`
+2. **Volume Fly** : creer un volume `africa_energy_data` monte sur `/data` pour SQLite et les uploads
+3. **Secrets Fly** : definir `JWT_SECRET`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, `CONTACT_TO`, `FRONTEND_ORIGIN`
+4. **Seed initial** : lancer `fly ssh console -C "cd /app && npm run seed"` apres le premier deploy
+5. **Frontend Netlify** : connecter le repo avec `netlify.toml` a la racine
+6. **Env Netlify** : definir `VITE_API_URL=https://<votre-app>.fly.dev`
+7. **CORS** : `FRONTEND_ORIGIN` doit pointer vers l'URL Netlify finale
+8. **Medias publics** : les uploads utilises sur le site public doivent passer par `/api/public/media/:filename` (compatibilite legacy `/uploads/...` preservee)

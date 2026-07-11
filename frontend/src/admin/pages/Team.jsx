@@ -16,7 +16,7 @@ const Team = () => (
       { name: 'role', label: 'Role / Poste', required: true },
       { name: 'email', label: 'Email', type: 'email' },
       { name: 'phone', label: 'Telephone' },
-      { name: 'photo_url', label: 'Photo (URL)', placeholder: '/uploads/...' },
+      { name: 'photo_url', label: 'Photo (URL)', placeholder: 'https://... ou /api/public/media/...' },
       { name: 'bio', label: 'Biographie', type: 'textarea', rows: 3, full: true },
       { name: 'order_idx', label: 'Ordre', type: 'number' },
       { name: 'active', label: 'Actif', type: 'checkbox' }

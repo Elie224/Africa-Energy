@@ -14,7 +14,7 @@ const Partners = () => (
     fields={[
       { name: 'name', label: 'Nom du partenaire', required: true, full: true },
       { name: 'type', label: 'Type', placeholder: 'Institutionnel, Industriel, Commercial...' },
-      { name: 'logo_url', label: 'Logo (URL)', placeholder: '/uploads/...' },
+      { name: 'logo_url', label: 'Logo (URL)', placeholder: 'https://... ou /api/public/media/...' },
       { name: 'website', label: 'Site web', type: 'url' },
       { name: 'description', label: 'Description', type: 'textarea', rows: 3, full: true },
       { name: 'order_idx', label: 'Ordre', type: 'number' },

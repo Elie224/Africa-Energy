@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { apiUrl } from '../../lib/apiBase.js'
 
 // Mini editeur WYSIWYG base sur contentEditable (sans dependance externe).
 // Sortie : HTML sanitise (whitelist de balises + attributs autorises).
@@ -94,7 +95,7 @@ const RichEditor = ({ value = '', onChange, placeholder = 'Ecrivez ici...' }) =>
   }
 
   const insertImage = () => {
-    const url = window.prompt("URL de l'image :", '/uploads/')
+    const url = window.prompt("URL de l'image :", apiUrl('/api/public/media/'))
     if (!url) return
     exec('insertImage', url)
   }

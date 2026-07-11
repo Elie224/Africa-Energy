@@ -131,7 +131,7 @@ const News = () => {
             </div>
             <div className="col-md-8">
               <label className="form-label">Image (URL)</label>
-              <input className="form-control" value={editing.image_url || ''} onChange={(e) => setEditing({ ...editing, image_url: e.target.value })} placeholder="/uploads/..." />
+              <input className="form-control" value={editing.image_url || ''} onChange={(e) => setEditing({ ...editing, image_url: e.target.value })} placeholder="https://... ou /api/public/media/..." />
             </div>
             <div className="col-md-4">
               <label className="form-label">Statut</label>

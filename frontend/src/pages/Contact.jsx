@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PageHero from '../components/PageHero.jsx'
 import Seo from '../components/Seo.jsx'
 import { useI18n } from '../i18n/I18nContext.jsx'
+import { apiUrl } from '../lib/apiBase.js'
 
 const EN_ERRORS = {
   spam: 'Spam detected',
@@ -49,7 +50,7 @@ const Contact = () => {
     setError('')
     setSending(true)
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch(apiUrl('/api/contact'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)

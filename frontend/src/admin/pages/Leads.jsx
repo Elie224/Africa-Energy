@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { api } from '../lib/api.js'
+import { apiUrl } from '../../lib/apiBase.js'
 
 const fmt = (ts) => new Date(ts).toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' })
 
@@ -35,7 +36,7 @@ const Leads = () => {
     catch (e) { setToast({ kind: 'error', msg: e.message }) }
   }
 
-  const exportCsv = () => window.open((import.meta.env.VITE_API_URL || '') + '/api/admin/leads/export.csv', '_blank')
+  const exportCsv = () => window.open(apiUrl('/api/admin/leads/export.csv'), '_blank')
 
   const filtered = filter === 'all' ? items : items.filter((i) => i.status === filter)
 

@@ -3,6 +3,7 @@ import PageHero from '../components/PageHero.jsx'
 import Seo from '../components/Seo.jsx'
 import { useI18n } from '../i18n/I18nContext.jsx'
 import SafeHtml from '../components/SafeHtml.jsx'
+import { apiUrl, assetUrl } from '../lib/apiBase.js'
 
 const fmtDate = (ts, lang) => {
   if (!ts) return ''
@@ -20,7 +21,7 @@ const News = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const res = await fetch('/api/public/news')
+        const res = await fetch(apiUrl('/api/public/news'))
         if (res.ok) {
           const data = await res.json()
           setArticles(data.items || [])
@@ -34,7 +35,7 @@ const News = () => {
   const openArticle = async (slug) => {
     setOpen(slug)
     try {
-      const res = await fetch('/api/public/news/' + encodeURIComponent(slug))
+      const res = await fetch(apiUrl('/api/public/news/' + encodeURIComponent(slug)))
       if (res.ok) {
         const data = await res.json()
         setDetail(data.item || null)
@@ -72,7 +73,7 @@ const News = () => {
                 <div key={a.id} className='col-lg-4 col-md-6'>
                   <article className='ae-card h-100' onClick={() => openArticle(a.slug)} style={{ cursor: 'pointer' }}>
                     {a.image_url && (
-                      <div style={{ height: 180, backgroundImage: 'url(' + a.image_url + ')', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: 8, marginBottom: 14 }} />
+                      <div style={{ height: 180, backgroundImage: 'url(' + assetUrl(a.image_url) + ')', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: 8, marginBottom: 14 }} />
                     )}
                     <small className='text-muted d-block mb-2'>{fmtDate(a.published_at, lang)}</small>
                     <h5>{a.title}</h5>
@@ -99,7 +100,7 @@ const News = () => {
               <div className='modal-body'>
                 {detail ? (
                   <>
-                    {detail.image_url && <img src={detail.image_url} alt={detail.title} style={{ width: '100%', borderRadius: 8, marginBottom: 16 }} />}
+                    {detail.image_url && <img src={assetUrl(detail.image_url)} alt={detail.title} style={{ width: '100%', borderRadius: 8, marginBottom: 16 }} />}
                     <small className='text-muted d-block mb-3'>{fmtDate(detail.published_at, lang)}</small>
                     <SafeHtml html={detail.content} />
                   </>

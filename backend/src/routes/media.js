@@ -3,13 +3,11 @@ import multer from 'multer'
 import path from 'node:path'
 import fs from 'node:fs'
 import crypto from 'node:crypto'
-import { fileURLToPath } from 'node:url'
 import db from '../db/index.js'
 import { requireAuth, requireRole } from '../middleware/auth.js'
 import { audit, getClientIp } from '../config/auth.js'
+import { uploadsDir } from '../config/paths.js'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const uploadsDir = path.resolve(__dirname, '../../uploads')
 if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true })
 
 const storage = multer.diskStorage({
@@ -38,9 +36,11 @@ const upload = multer({
 const router = Router()
 router.use(requireAuth)
 
+const publicMediaUrl = (filename) => `/api/public/media/${filename}`
+
 router.post('/', requireRole('editor'), upload.single('file'), (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'Fichier manquant (champ "file")' })
-  const url = `/uploads/${req.file.filename}`
+  const url = publicMediaUrl(req.file.filename)
   const r = db.prepare(`INSERT INTO media (filename, original_name, mime, size, url, uploaded_by, created_at)
     VALUES (?, ?, ?, ?, ?, ?, ?)`).run(
       req.file.filename, req.file.originalname, req.file.mimetype, req.file.size, url, req.user.sub, Date.now()
@@ -49,7 +49,7 @@ router.post('/', requireRole('editor'), upload.single('file'), (req, res) => {
   res.status(201).json({ item: { id: r.lastInsertRowid, url, filename: req.file.filename, original_name: req.file.originalname, mime: req.file.mimetype, size: req.file.size } })
 })
 
-// Servir un fichier uploade (auth obligatoire)
+// Servir un fichier uploade avec authentification (usage admin/interne)
 router.get('/file/:filename', (req, res) => {
   const safe = req.params.filename.replace(/[^a-zA-Z0-9_.-]/g, '')
   if (safe !== req.params.filename) return res.status(400).json({ error: 'Nom invalide' })

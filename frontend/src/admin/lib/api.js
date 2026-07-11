@@ -1,5 +1,4 @@
-// Client API pour l'admin
-const BASE = import.meta.env.VITE_API_URL || ''
+import { apiUrl } from '../../lib/apiBase.js'
 
 const TOKEN_KEY = 'ae_admin_token'
 const REFRESH_KEY = 'ae_admin_refresh'
@@ -43,14 +42,14 @@ const handle = async (res) => {
 }
 
 export const api = {
-  get: (path) => withTimeout(fetch(`${BASE}${path}`, { method: 'GET', headers: buildHeaders() })).then(handle),
-  post: (path, body) => withTimeout(fetch(`${BASE}${path}`, { method: 'POST', headers: buildHeaders(), body: JSON.stringify(body || {}) })).then(handle),
-  put: (path, body) => withTimeout(fetch(`${BASE}${path}`, { method: 'PUT', headers: buildHeaders(), body: JSON.stringify(body || {}) })).then(handle),
-  patch: (path, body) => withTimeout(fetch(`${BASE}${path}`, { method: 'PATCH', headers: buildHeaders(), body: JSON.stringify(body || {}) })).then(handle),
-  del: (path) => withTimeout(fetch(`${BASE}${path}`, { method: 'DELETE', headers: buildHeaders() })).then(handle),
+  get: (path) => withTimeout(fetch(apiUrl(path), { method: 'GET', headers: buildHeaders() })).then(handle),
+  post: (path, body) => withTimeout(fetch(apiUrl(path), { method: 'POST', headers: buildHeaders(), body: JSON.stringify(body || {}) })).then(handle),
+  put: (path, body) => withTimeout(fetch(apiUrl(path), { method: 'PUT', headers: buildHeaders(), body: JSON.stringify(body || {}) })).then(handle),
+  patch: (path, body) => withTimeout(fetch(apiUrl(path), { method: 'PATCH', headers: buildHeaders(), body: JSON.stringify(body || {}) })).then(handle),
+  del: (path) => withTimeout(fetch(apiUrl(path), { method: 'DELETE', headers: buildHeaders() })).then(handle),
   upload: (path, file) => {
     const fd = new FormData()
     fd.append('file', file)
-    return withTimeout(fetch(`${BASE}${path}`, { method: 'POST', headers: buildHeaders({}, true), body: fd })).then(handle)
+    return withTimeout(fetch(apiUrl(path), { method: 'POST', headers: buildHeaders({}, true), body: fd })).then(handle)
   }
 }

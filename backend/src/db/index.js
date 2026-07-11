@@ -1,13 +1,10 @@
 // Wrapper autour de node:sqlite (integre a Node 22+, API compatible better-sqlite3)
 import { DatabaseSync } from 'node:sqlite'
-import path from 'node:path'
 import fs from 'node:fs'
-import { fileURLToPath } from 'node:url'
+import { dataDir, defaultDbPath } from '../config/paths.js'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const dataDir = path.resolve(__dirname, '../../data')
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true })
-const dbPath = process.env.DB_PATH || path.join(dataDir, 'africa-energy.db')
+const dbPath = process.env.DB_PATH || defaultDbPath
 
 class DB {
   constructor(path) { this._d = new DatabaseSync(path) }
