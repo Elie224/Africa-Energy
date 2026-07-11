@@ -14,7 +14,9 @@ const Careers = () => {
         const res = await fetch(apiUrl('/api/public/jobs'))
         if (res.ok) {
           const data = await res.json()
-          setJobs(data)
+          setJobs(Array.isArray(data?.items) ? data.items : [])
+        } else {
+          setJobs([])
         }
       } catch (err) { setJobs([]) }
     }
@@ -64,12 +66,12 @@ const Careers = () => {
                     <div className='ae-card'>
                       <div className='d-flex justify-content-between align-items-start mb-2'>
                         <h4 className='mb-0'>{j.title}</h4>
-                        <span className='badge' style={{ backgroundColor: 'var(--ae-blue)' }}>{j.type}</span>
+                        <span className='badge' style={{ backgroundColor: 'var(--ae-blue)' }}>{j.contract_type || '-'}</span>
                       </div>
                       <p className='text-muted small mb-2'>
-                        <i className='bi bi-geo-alt me-1'></i>{j.location}
+                        <i className='bi bi-geo-alt me-1'></i>{j.location || '-'}
                       </p>
-                      <p>{j.desc}</p>
+                      <p>{j.description}</p>
                       <a href={j.applyLink || '/contact'} className='btn btn-ae-outline btn-sm'>
                         {t('pages.careers.applyButton')} <i className='bi bi-arrow-right ms-1'></i>
                       </a>
