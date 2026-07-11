@@ -3,39 +3,14 @@ import { Link, NavLink } from 'react-router-dom'
 import LanguageSwitcher from './LanguageSwitcher.jsx'
 import { useI18n } from '../i18n/I18nContext.jsx'
 
-/*
-  Same circular RING as the footer logo, but adapted for the light navbar:
-  - Border orange + subtle blue inner ring (instead of white)
-  - No white box, no pill: minimalist professional mark
-*/
 const NavbarMark = () => (
-  <div
-    style={{
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '6px',
-      background: 'transparent',
-      border: '2px solid rgba(243, 146, 0, 0.7)',
-      borderRadius: '50%',
-      boxShadow: '0 0 0 3px rgba(11, 42, 91, 0.06), 0 4px 14px rgba(0, 0, 0, 0.08)',
-      flexShrink: 0,
-    }}
-  >
+  <span className='ae-navbar-mark'>
     <img
       src='/logo-ae1.png'
       alt='Africa Energy SAU'
-      height='55'
-      style={{
-        height: '55px',
-        width: '55px',
-        objectFit: 'contain',
-        display: 'block',
-        borderRadius: '50%',
-      }}
       draggable={false}
     />
-  </div>
+  </span>
 )
 
 const Navbar = () => {
@@ -55,7 +30,7 @@ const Navbar = () => {
     'nav-link' + (isActive ? ' active' : '')
 
   return (
-    <nav className={'navbar navbar-expand-lg ae-navbar ' + (scrolled ? 'shadow-sm' : '')}>
+    <nav className={'navbar navbar-expand-lg ae-navbar ' + (scrolled ? 'ae-scrolled shadow-sm' : '')}>
       <div className='container'>
         <Link className='navbar-brand d-flex align-items-center' to='/' onClick={closeMenu}>
           <NavbarMark />

@@ -1,0 +1,298 @@
+/* ============================================================
+   AFRICA ENERGY SAU - V2 UX UPGRADE
+   Hero / Cards / Scroll animations / Counters / Mobile header
+   ============================================================ */
+
+/* ---------- 1. ANIMATIONS AU SCROLL ---------- */
+
+.ae-fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+.ae-fade-up.ae-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ae-slide-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.ae-slide-left.ae-in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ae-slide-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.ae-slide-right.ae-in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ae-zoom-in {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.ae-zoom-in.ae-in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays (max 8 children) */
+.ae-stagger > * { transition-delay: 0s; }
+.ae-stagger > *:nth-child(1) { transition-delay: 0.05s; }
+.ae-stagger > *:nth-child(2) { transition-delay: 0.12s; }
+.ae-stagger > *:nth-child(3) { transition-delay: 0.19s; }
+.ae-stagger > *:nth-child(4) { transition-delay: 0.26s; }
+.ae-stagger > *:nth-child(5) { transition-delay: 0.33s; }
+.ae-stagger > *:nth-child(6) { transition-delay: 0.40s; }
+.ae-stagger > *:nth-child(7) { transition-delay: 0.47s; }
+.ae-stagger > *:nth-child(8) { transition-delay: 0.54s; }
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ae-fade-up, .ae-slide-left, .ae-slide-right, .ae-zoom-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- 2. CARTES SERVICES / OFFER PREMIUM ---------- */
+
+.ae-card-premium {
+  background: #fff;
+  border-radius: 18px;
+  padding: 32px 24px;
+  height: 100%;
+  position: relative;
+  border: 1px solid rgba(11, 42, 91, 0.06);
+  box-shadow: 0 4px 16px rgba(11, 42, 91, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+.ae-card-premium::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ae-orange), var(--ae-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.ae-card-premium:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(11, 42, 91, 0.14);
+}
+.ae-card-premium:hover::before { transform: scaleX(1); }
+
+.ae-card-premium .ae-card__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0B2A5B 0%, #1E5BB8 100%);
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(11, 42, 91, 0.25);
+  transition: transform 0.3s ease;
+}
+.ae-card-premium:hover .ae-card__icon {
+  transform: scale(1.08) rotate(-4deg);
+}
+.ae-card-premium h4 {
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+}
+.ae-card-premium p {
+  color: var(--ae-gray);
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ---------- 3. BOUTONS CTA PREMIUM ---------- */
+
+.btn-ae-primary,
+.btn-ae-cta {
+  background-color: var(--ae-orange);
+  border: 2px solid var(--ae-orange);
+  color: #fff;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-size: 14px;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(243, 146, 0, 0.35),
+              0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.18s ease, box-shadow 0.25s ease, background-color 0.2s ease;
+}
+.btn-ae-primary:hover,
+.btn-ae-cta:hover {
+  background-color: #e08300;
+  border-color: #e08300;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(243, 146, 0, 0.45),
+              0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.btn-ae-primary:active,
+.btn-ae-cta:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 3px 10px rgba(243, 146, 0, 0.35);
+}
+.btn-ae-primary:focus-visible,
+.btn-ae-cta:focus-visible {
+  outline: 3px solid rgba(243, 146, 0, 0.4);
+  outline-offset: 2px;
+}
+
+/* Outline button on dark background */
+.btn-ae-outline-light {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+.btn-ae-outline-light:hover {
+  background: #fff;
+  color: var(--ae-blue-dark);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ---------- 4. HEADER MOBILE COMPACT ---------- */
+
+.ae-navbar {
+  padding: 10px 0;
+  transition: padding 0.25s ease;
+}
+.ae-navbar.ae-scrolled { padding: 6px 0; }
+
+.ae-navbar .navbar-brand img,
+.ae-navbar .ae-navbar-mark img {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+}
+.ae-navbar .ae-navbar-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: 2px solid rgba(243, 146, 0, 0.7);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(11, 42, 91, 0.06), 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.ae-navbar .nav-link { padding: 8px 12px; font-size: 14.5px; }
+
+@media (max-width: 991px) {
+  .ae-navbar { padding: 8px 0; }
+  .ae-navbar .navbar-brand img,
+  .ae-navbar .ae-navbar-mark img { height: 42px; width: 42px; }
+}
+
+/* ---------- 5. HERO POLISH ---------- */
+
+.ae-hero-simple {
+  position: relative;
+  padding: 110px 0 90px;
+}
+.ae-hero-simple h1 {
+  font-size: clamp(1.85rem, 4vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  color: #fff;
+}
+.ae-hero-simple h1 .highlight { color: var(--ae-orange); }
+.ae-hero-simple .ae-hero__subtitle {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 720px;
+  margin: 0 auto 28px;
+}
+.ae-hero__pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 22px 0 30px;
+}
+.ae-hero__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.ae-hero__pill i { color: var(--ae-orange); }
+.ae-hero__pill:hover { background: rgba(255, 255, 255, 0.18); transform: translateY(-2px); }
+.ae-hero__kicker {
+  background: rgba(243, 146, 0, 0.18);
+  border: 1px solid rgba(243, 146, 0, 0.45);
+  color: #fff !important;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* ---------- 6. COMPTEUR ANIMÉ STATS ---------- */
+
+.ae-stat-number {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+/* ---------- 7. MOBILE MARGINS ---------- */
+
+@media (max-width: 767px) {
+  .section-padding { padding: 64px 0; }
+  .section-title { margin-bottom: 36px; }
+  .ae-card-premium { padding: 24px 18px; }
+  .ae-card-premium .ae-card__icon { width: 64px; height: 64px; font-size: 28px; }
+  .ae-hero-simple { padding: 80px 0 60px; }
+  .ae-hero__pills { gap: 8px; }
+  .ae-hero__pill { font-size: 12.5px; padding: 7px 12px; }
+}
+@media (max-width: 575px) {
+  .section-padding { padding: 54px 0; }
+  .ae-hero-simple { padding: 70px 0 50px; }
+}

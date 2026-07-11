@@ -8,6 +8,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import './styles/theme.css'
 import { I18nProvider } from './i18n/I18nContext.jsx'
 import './styles/direction.css'
+import './styles/ux-upgrade.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
