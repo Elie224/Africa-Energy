@@ -37,7 +37,7 @@ app.use(helmet({
   crossOriginEmbedderPolicy: false
 }))
 app.use(cors({
-  origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5173',
+  origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5174',
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   credentials: false
 }))
@@ -69,3 +69,4 @@ app.use((err, _req, res, _next) => {
 app.listen(PORT, () => {
   console.log(`[africa-energy-backend] listening on http://localhost:${PORT}`)
 })
+

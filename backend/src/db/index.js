@@ -147,6 +147,19 @@ CREATE TABLE IF NOT EXISTS leads (
   updated_at INTEGER NOT NULL
 );
 
+
+CREATE TABLE IF NOT EXISTS jobs (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT NOT NULL,
+  location TEXT,
+  contract_type TEXT,
+  description TEXT,
+  active INTEGER DEFAULT 1,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_jobs_active ON jobs(active);
+
 CREATE TABLE IF NOT EXISTS media (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   filename TEXT NOT NULL,

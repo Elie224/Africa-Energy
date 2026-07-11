@@ -1,4 +1,5 @@
 import React from 'react'
+import PageHero from '../components/PageHero.jsx'
 import Seo from '../components/Seo.jsx'
 import { Link } from 'react-router-dom'
 import { useI18n } from '../i18n/I18nContext.jsx'
@@ -32,8 +33,8 @@ const Confidentialite = () => {
             <p>{t('pages.privacy.responsableIntro')}</p>
             <p>
               <strong style={{ color: 'var(--ae-blue-dark)' }}>AFRICA ENERGY S.A.U</strong><br />
-              Societe Anonyme Unipersonnelle - RCCM N° GN.TCC.2025.B.18185<br />
-              Siege social : Quartier Almamya, Commune de Kaloum, Conakry, Republique de Guinee<br />
+              Société Anonyme Unipersonnelle - RCCM N° GN.TCC.2025.B.18185<br />
+              Siège social : Quartier Almamya, Commune de Kaloum, Conakry, République de Guinée<br />
               Email DPO : <a href='mailto:africaenergysau@gmail.com'>africaenergysau@gmail.com</a><br />
               Telephone : <a href='tel:+224612368058'>+224 612 368 058</a>
             </p>
@@ -118,3 +119,4 @@ const Confidentialite = () => {
 }
 
 export default Confidentialite
+

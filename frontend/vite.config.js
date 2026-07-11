@@ -54,6 +54,7 @@ export default defineConfig({
     drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : []
   },
   plugins: [react(), charsetPlugin()],
-  server: { port: 5173, open: false, headers: securityHeaders, proxy: { '/api': { target: 'http://localhost:4000', changeOrigin: true }, '/uploads': { target: 'http://localhost:4000', changeOrigin: true } } },
+  server: { port: 5174, open: false, headers: securityHeaders, proxy: { '/api': { target: 'http://localhost:4000', changeOrigin: true }, '/uploads': { target: 'http://localhost:4000', changeOrigin: true } } },
   preview: { port: 4173, open: false, headers: securityHeaders }
 })
+

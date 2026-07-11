@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PageHero from '../components/PageHero.jsx'
 import Seo from '../components/Seo.jsx'
 import { useI18n } from '../i18n/I18nContext.jsx'
 
@@ -9,7 +10,7 @@ const Careers = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await fetch('/api/jobs')
+        const res = await fetch('/api/public/jobs')
         if (res.ok) {
           const data = await res.json()
           setJobs(data)
@@ -22,14 +23,7 @@ const Careers = () => {
   return (
     <>
       <Seo title={t('pages.careers.heroTitle')} description={t('pages.careers.seoDesc')} />
-      <section className='ae-hero' style={{ padding: '80px 0' }}>
-        <div className='container text-center'>
-          <h1>{t('pages.careers.heroTitle')}</h1>
-          <p className='mt-3' style={{ fontSize: '1.2rem', opacity: 0.95 }}>
-            {t('pages.careers.heroSubtitle')}
-          </p>
-        </div>
-      </section>
+      <PageHero title={t('pages.careers.heroTitle')} subtitle={t('pages.careers.heroSubtitle')} />
 
       <section className='section-padding'>
         <div className='container'>
@@ -90,3 +84,4 @@ const Careers = () => {
   )
 }
 export default Careers
+

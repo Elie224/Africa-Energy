@@ -1,8 +1,42 @@
 import React, { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import Logo from './Logo'
 import LanguageSwitcher from './LanguageSwitcher.jsx'
 import { useI18n } from '../i18n/I18nContext.jsx'
+
+/*
+  Same circular RING as the footer logo, but adapted for the light navbar:
+  - Border orange + subtle blue inner ring (instead of white)
+  - No white box, no pill: minimalist professional mark
+*/
+const NavbarMark = () => (
+  <div
+    style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '6px',
+      background: 'transparent',
+      border: '2px solid rgba(243, 146, 0, 0.7)',
+      borderRadius: '50%',
+      boxShadow: '0 0 0 3px rgba(11, 42, 91, 0.06), 0 4px 14px rgba(0, 0, 0, 0.08)',
+      flexShrink: 0,
+    }}
+  >
+    <img
+      src='/logo-ae1.png'
+      alt='Africa Energy SAU'
+      height='55'
+      style={{
+        height: '55px',
+        width: '55px',
+        objectFit: 'contain',
+        display: 'block',
+        borderRadius: '50%',
+      }}
+      draggable={false}
+    />
+  </div>
+)
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -17,15 +51,14 @@ const Navbar = () => {
 
   const closeMenu = () => setExpanded(false)
 
-  // Style de NavLink : soulignement fin sur la page active (pas d'orange massif)
   const navLinkClass = ({ isActive }) =>
     'nav-link' + (isActive ? ' active' : '')
 
   return (
     <nav className={'navbar navbar-expand-lg ae-navbar ' + (scrolled ? 'shadow-sm' : '')}>
       <div className='container'>
-        <Link className='navbar-brand' to='/' onClick={closeMenu}>
-          <Logo height={55} />
+        <Link className='navbar-brand d-flex align-items-center' to='/' onClick={closeMenu}>
+          <NavbarMark />
         </Link>
 
         <button
@@ -48,7 +81,7 @@ const Navbar = () => {
             <li className='nav-item'><NavLink className={navLinkClass} to='/direction' onClick={closeMenu}>{t('nav.direction')}</NavLink></li>
             <li className='nav-item nav-item--lang'><LanguageSwitcher /></li>
             <li className='nav-item nav-item--cta'>
-              <Link to='/contact' className='btn btn-ae-primary btn-sm' onClick={closeMenu}>
+              <Link to='/contact' className='nav-cta-pill' onClick={closeMenu}>
                 <i className='bi bi-envelope me-1'></i>{t('nav.contact')}
               </Link>
             </li>

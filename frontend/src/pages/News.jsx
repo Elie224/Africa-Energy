@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PageHero from '../components/PageHero.jsx'
 import Seo from '../components/Seo.jsx'
 import { useI18n } from '../i18n/I18nContext.jsx'
 import SafeHtml from '../components/SafeHtml.jsx'
@@ -45,14 +46,7 @@ const News = () => {
   return (
     <>
       <Seo title={t('pages.news.seoTitle')} description={t('pages.news.seoDesc')} />
-      <section className='ae-hero' style={{ padding: '80px 0' }}>
-        <div className='container text-center'>
-          <h1>{t('pages.news.heroTitle')}</h1>
-          <p className='mt-3' style={{ fontSize: '1.2rem', opacity: 0.95 }}>
-            {t('pages.news.heroSubtitle')}
-          </p>
-        </div>
-      </section>
+      <PageHero title={t('pages.news.heroTitle')} subtitle={t('pages.news.heroSubtitle')} />
       <section className='section-padding'>
         <div className='container'>
           {loading ? (

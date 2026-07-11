@@ -1,15 +1,31 @@
 import React, { useState } from 'react'
+import PageHero from '../components/PageHero.jsx'
 import Seo from '../components/Seo.jsx'
 import { useI18n } from '../i18n/I18nContext.jsx'
 
-const errMap = {
-  fr: { spam:'Spam detecte', name:'Nom invalide', email:'Email invalide', phone:'Telephone invalide', msgShort:'Message trop court (10 caracteres minimum)', msgLong:'Message trop long (2000 caracteres maximum)', network:'Reseau indisponible. Reessayez plus tard.', generic:'Erreur lors de l envoi' },
-  en: { spam:'Spam detected', name:'Invalid name', email:'Invalid email', phone:'Invalid phone', msgShort:'Message too short (10 characters minimum)', msgLong:'Message too long (2000 characters maximum)', network:'Network unavailable. Please try again later.', generic:'Error while sending' }
+const EN_ERRORS = {
+  spam: 'Spam detected',
+  name: 'Invalid name',
+  email: 'Invalid email',
+  phone: 'Invalid phone',
+  msgShort: 'Message too short (10 characters minimum)',
+  msgLong: 'Message too long (2000 characters maximum)',
+  network: 'Network unavailable. Please try again later.',
+  generic: 'Error while sending'
 }
 
 const Contact = () => {
   const { t, lang } = useI18n()
-  const errs = errMap[lang] || errMap.fr
+  const errs = {
+    spam:     lang === 'en' ? EN_ERRORS.spam     : t('pages.contact.errorSpam'),
+    name:     lang === 'en' ? EN_ERRORS.name     : t('pages.contact.errorName'),
+    email:    lang === 'en' ? EN_ERRORS.email    : t('pages.contact.errorEmail'),
+    phone:    lang === 'en' ? EN_ERRORS.phone    : t('pages.contact.errorPhone'),
+    msgShort: lang === 'en' ? EN_ERRORS.msgShort : t('pages.contact.errorMsgShort'),
+    msgLong:  lang === 'en' ? EN_ERRORS.msgLong  : t('pages.contact.errorMsgLong'),
+    network:  lang === 'en' ? EN_ERRORS.network  : t('pages.contact.formErrorNetwork'),
+    generic:  lang === 'en' ? EN_ERRORS.generic  : t('pages.contact.formErrorGeneric')
+  }
   const [form, setForm] = useState({ nom:'', email:'', telephone:'', entreprise:'', produit:'', message:'', website:'' })
   const [error, setError] = useState('')
   const [sent, setSent] = useState(false)
@@ -53,6 +69,7 @@ const Contact = () => {
   return (
     <>
       <Seo title={t('pages.contact.heroTitle')} description={t('pages.contact.seoDesc')} />
+      <PageHero title={t('pages.contact.heroTitle')} subtitle={t('pages.contact.heroSubtitle')} />
       <section className='ae-hero' style={{ padding: '80px 0' }}>
         <div className='container text-center'>
           <h1>{t('pages.contact.heroTitle')}</h1>

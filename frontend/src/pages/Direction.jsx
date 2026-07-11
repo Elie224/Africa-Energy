@@ -1,4 +1,5 @@
 import React from 'react'
+import PageHero from '../components/PageHero.jsx'
 import Seo from '../components/Seo.jsx'
 import { useI18n } from '../i18n/I18nContext.jsx'
 import { Link } from 'react-router-dom'
@@ -15,7 +16,7 @@ const MemberCard = ({ role, name, desc, phone, email, addr, highlight, icon, pho
   <div className={'org-node' + (highlight ? ' org-node--dg' : '')}>
     {photo ? (
       <div className="org-node-photo">
-        <img src={photo} alt={name} />
+        <img src={photo} alt={name} loading="lazy" decoding="async" />
       </div>
     ) : (
       <div className={'org-node-avatar' + (highlight ? ' org-node-avatar--dg' : '')}>
@@ -38,14 +39,7 @@ const Direction = () => {
   return (
     <>
       <Seo title={t('pages.direction.heroTitle')} description={t('pages.direction.seoDesc')} />
-      <section className="dg-hero">
-        <div className="container text-center position-relative" style={{ zIndex: 1 }}>
-          <h1 className="text-white display-4 fw-bold">{t('pages.direction.heroTitle')}</h1>
-          <p className="mt-3" style={{ fontSize: '1.2rem', opacity: 0.95 }}>
-            {t('pages.direction.heroSubtitle')}
-          </p>
-        </div>
-      </section>
+      <PageHero title={t('pages.direction.heroTitle')} subtitle={t('pages.direction.heroSubtitle')} />
 
       <section className="section-padding">
         <div className="container">

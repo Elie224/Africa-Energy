@@ -28,6 +28,16 @@ router.get('/events', (_req, res) => {
   const items = db.prepare("SELECT * FROM events ORDER BY start_at DESC LIMIT 100").all()
   res.json({ items })
 })
+
+router.get('/jobs', (_req, res) => {
+  try {
+    const items = db.prepare('SELECT id, title, location, contract_type, description FROM jobs WHERE active = 1 ORDER BY created_at DESC LIMIT 50').all()
+    res.json({ items })
+  } catch (e) {
+    res.json({ items: [] })
+  }
+})
+
 // B15 : whitelist des cles exposees au public
 const PUBLIC_SETTINGS = ['site.tagline', 'site.email', 'site.phone', 'site.address', 'social.whatsapp', 'social.maps']
 router.get('/settings', (_req, res) => {

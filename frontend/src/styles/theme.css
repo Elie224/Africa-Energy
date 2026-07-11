@@ -13,7 +13,7 @@
   --ae-white: #ffffff;
   --ae-dark: #0a0a0a;
 
-  --font-heading: 'Montserrat', sans-serif;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
 
@@ -207,16 +207,117 @@ a {
   opacity: 0.95;
 }
 
-.ae-hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(243, 146, 0, 0.15) 0%, transparent 70%);
-  border-radius: 50%;
+
+
+
+
+/* Section eyebrow tag (above section title) */
+.ae-section-tag {
+  display: inline-block;
+  background-color: rgba(243, 146, 0, 0.12);
+  color: var(--ae-orange);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 50px;
+  border: 1px solid rgba(243, 146, 0, 0.25);
 }
+
+
+/* ===============================================
+   Clean hero for inner pages (no glows, no grid)
+   Mirrors the elegant Direction page hero
+   =============================================== */
+.ae-hero-simple {
+  padding: 80px 0 60px;
+  background: linear-gradient(135deg, #0B2A5B 0%, #1E5BB8 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.ae-hero-simple h1 {
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  animation: fadeInUp 0.6s ease-out;
+}
+.ae-hero-simple .ae-hero__subtitle {
+  color: rgba(255,255,255,0.92);
+  font-size: 1.15rem;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+.ae-hero-simple .ae-hero__kicker {
+  background-color: rgba(255,255,255,0.18) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  font-size: 0.75rem !important;
+  padding: 6px 14px !important;
+}
+.ae-hero-simple h1 .highlight { color: var(--ae-orange); }
+.ae-hero-simple .ae-breadcrumb a { color: rgba(255,255,255,0.85); }
+.ae-hero-simple .ae-breadcrumb { color: rgba(255,255,255,0.7); }
+@media (max-width: 768px) {
+  .ae-hero-simple { padding: 60px 0 50px; }
+  .ae-hero-simple h1 { font-size: 1.9rem; }
+  .ae-hero-simple .ae-hero__subtitle { font-size: 1rem; }
+}
+
+/* Inner-page hero (smaller than home, no side-by-side layout) */
+.ae-hero--inner {
+  padding: 80px 0 70px;
+}
+.ae-hero--inner h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  animation: fadeInUp 0.6s ease-out;
+}
+.ae-hero__subtitle {
+  font-size: 1.2rem;
+  max-width: 720px;
+  margin: 0 auto;
+  opacity: 0.92;
+  line-height: 1.5;
+}
+.ae-hero__kicker {
+  background-color: rgba(243, 146, 0, 0.2) !important;
+  color: #F39200 !important;
+  font-weight: 600 !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  border: 1px solid rgba(243, 146, 0, 0.4);
+}
+@media (max-width: 768px) {
+  .ae-hero--inner h1 { font-size: 2rem; }
+  .ae-hero--inner { padding: 60px 0 50px; }
+  .ae-hero__subtitle { font-size: 1rem; }
+}
+
+.ae-breadcrumb {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+}
+.ae-breadcrumb a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.ae-breadcrumb a:hover { color: #F39200; }
+.ae-breadcrumb .separator { color: rgba(255,255,255,0.4); }
 
 /* Cards */
 .ae-card {
@@ -285,10 +386,24 @@ a {
 }
 
 /* Footer */
+/* Footer */
 .ae-footer {
-  background: #051e44;
-  color: rgba(255, 255, 255, 0.85);
-  padding: 60px 0 30px;
+  background: linear-gradient(180deg, #051e44 0%, #04163A 100%);
+  position: relative;
+  overflow: hidden;
+}
+.ae-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 30%, rgba(243, 146, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 85% 80%, rgba(80, 160, 255, 0.10) 0%, transparent 55%);
+  pointer-events: none;
+}
+.ae-footer .container {
+  position: relative;
+  z-index: 1;
 }
 
 .ae-footer h5 {
@@ -607,4 +722,230 @@ a {
 button:focus-visible, a:focus-visible {
   outline: 3px solid #F39200;
   outline-offset: 3px;
+}
+
+/* Visually balanced page-level paragraphs */
+.section-intro {
+  max-width: 800px;
+  margin: 0 auto 50px;
+  text-align: center;
+  font-size: 1.15rem;
+  color: var(--ae-gray);
+  line-height: 1.6;
+}
+
+/* Cards on tinted backgrounds */
+.ae-card--on-tinted {
+  background: var(--ae-white);
+}
+
+/* CTA strip */
+.ae-cta-strip {
+  background: linear-gradient(135deg, var(--ae-blue-dark) 0%, var(--ae-blue) 100%);
+  border-radius: 16px;
+  padding: 50px 40px;
+  color: var(--ae-white);
+  text-align: center;
+}
+.ae-cta-strip h2 {
+  color: var(--ae-white);
+  margin-bottom: 20px;
+}
+.ae-cta-strip p {
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 28px;
+}
+.ae-cta-strip .btn-ae-primary {
+  margin: 0 6px;
+}
+@media (max-width: 576px) {
+  .ae-cta-strip { padding: 40px 24px; }
+}
+
+/* Stat-item separator (Home) */
+.ae-stats .stat-item { position: relative; }
+.ae-stats .stat-item + .stat-item::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background: rgba(255,255,255,0.15);
+}
+@media (max-width: 767px) {
+  .ae-stats .stat-item + .stat-item::before { display: none; }
+}
+
+/* Hero stats spacing fix (no negative margin) */
+.ae-stats + .section-padding { border-top: 1px solid rgba(11, 42, 91, 0.04); }
+
+
+/* ===============================================
+   Navbar circular / pill border accents
+   =============================================== */
+
+/* CTA pill in navbar: perfectly rounded with thin navy ring */
+.nav-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--ae-orange);
+  border: 2px solid var(--ae-blue-dark);
+  color: var(--ae-white);
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-left: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(243,146,0,0.25);
+}
+.nav-cta-pill:hover {
+  background-color: #d77e00;
+  border-color: var(--ae-blue-dark);
+  color: var(--ae-white);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(243,146,0,0.35);
+}
+@media (max-width: 991px) {
+  .nav-cta-pill { margin-left: 0; margin-top: 8px; padding: 10px 22px; }
+}
+
+/* Language switcher buttons: circular border-radius */
+.ae-lang-switch button {
+  border-radius: 9999px !important;
+}
+
+/* Active nav link pill highlight */
+.ae-navbar .nav-link.active {
+  background-color: rgba(243, 146, 0, 0.1);
+  border-radius: 9999px;
+  padding: 8px 14px !important;
+}
+
+/* ===============================================
+   Enhanced responsiveness — Mobile / Tablet / Desktop
+   Score PageSpeed >= 85 mobile target
+   =============================================== */
+
+/* Fluid hero typography across all breakpoints */
+@media (max-width: 991px) {
+  .ae-hero-simple h1 { font-size: 2.2rem; line-height: 1.2; }
+  .ae-hero-simple .ae-hero__subtitle { font-size: 1.05rem; }
+  .ae-hero--inner h1 { font-size: 2.3rem; }
+  .ae-stats .stat-number { font-size: 2.2rem; }
+}
+
+@media (max-width: 767px) {
+  /* Typography */
+  body { font-size: 15px; }
+  h1, .h1 { font-size: 1.85rem !important; }
+  h2, .h2 { font-size: 1.5rem !important; }
+  h3, .h3 { font-size: 1.25rem !important; }
+  h4, .h4 { font-size: 1.1rem !important; }
+
+  /* Hero */
+  .ae-hero-simple { padding: 50px 0 40px; }
+  .ae-hero-simple h1 { font-size: 1.75rem; }
+  .ae-hero-simple .ae-hero__subtitle { font-size: 0.95rem; }
+  .ae-hero--inner { padding: 60px 0 50px; }
+  .ae-hero--inner h1 { font-size: 1.9rem; }
+
+  /* Spacing */
+  .section-padding { padding: 50px 0; }
+  .section-title { margin-bottom: 30px; }
+  .ae-card { padding: 20px !important; }
+
+  /* Stats */
+  .ae-stats .stat-item { margin-bottom: 18px; }
+  .ae-stats .stat-number { font-size: 1.9rem; }
+  .ae-stats .stat-label { font-size: 0.82rem; }
+
+  /* CTA strip */
+  .ae-cta-strip { padding: 36px 20px; }
+  .ae-cta-strip h2 { font-size: 1.4rem; }
+
+  /* Grids */
+  .row.g-4 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
+  .row.g-5 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
+
+  /* Buttons */
+  .btn-lg { padding: 10px 22px; font-size: 0.95rem; }
+}
+
+@media (max-width: 575px) {
+  .ae-hero-simple { padding: 40px 0 30px; }
+  .ae-hero-simple h1 { font-size: 1.55rem; }
+  .ae-hero-simple .ae-hero__subtitle { font-size: 0.9rem; }
+  .section-padding { padding: 40px 0; }
+  .container { padding-left: 16px; padding-right: 16px; }
+}
+
+/* Tablet (portrait) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .ae-hero-simple h1 { font-size: 2.1rem; }
+  .ae-stats .col-md-3 { flex: 0 0 50%; max-width: 50%; }
+}
+
+/* Touch targets >= 44px on mobile (accessibility) */
+@media (max-width: 767px) {
+  .nav-link, .btn, .ae-card { min-height: 44px; }
+  .navbar-toggler { padding: 10px; }
+  .ae-lang-switch button { padding: 10px 14px !important; }
+}
+
+/* Image rendering */
+img { max-width: 100%; height: auto; }
+
+/* CLS prevention: reserve space for images */
+.ae-card img,
+.org-node-photo img,
+.dg-photo,
+.ae-hero img {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+
+/* ===============================================
+   Typography refinements — Professional polish
+   =============================================== */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+h1, .h1 { letter-spacing: -0.025em; font-weight: 800; }
+h2, .h2 { letter-spacing: -0.02em; font-weight: 700; }
+h3, .h3 { letter-spacing: -0.015em; font-weight: 700; }
+h4, .h4 { letter-spacing: -0.01em; font-weight: 600; }
+h5, .h5 { letter-spacing: -0.005em; font-weight: 600; }
+h6, .h6 { letter-spacing: 0; font-weight: 600; }
+
+p, li, span, div { font-feature-settings: "kern" 1; }
+
+/* Better paragraph spacing */
+p { margin-bottom: 1rem; }
+p:last-child { margin-bottom: 0; }
+
+/* Improved text rendering for buttons */
+.btn { font-feature-settings: "kern" 1; letter-spacing: 0.01em; }
+
+/* OpenType features for headings */
+h1, h2, h3, h4, h5, h6 {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+/* Better number rendering in stats */
+.ae-stats .stat-number,
+.stat-number,
+.dg-photo + * .number {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
 }

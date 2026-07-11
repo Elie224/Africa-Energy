@@ -25,11 +25,11 @@ export const verifyPassword = (plain, hash) => bcrypt.compareSync(plain, hash)
 export const signToken = (user) => jwt.sign(
   { sub: user.id, email: user.email, role: user.role, name: user.name },
   JWT_SECRET,
-  { expiresIn: JWT_TTL }
+  { expiresIn: JWT_TTL, algorithm: "HS256" }
 )
 
 export const verifyToken = (token) => {
-  try { return jwt.verify(token, JWT_SECRET) } catch { return null }
+  try { return jwt.verify(token, JWT_SECRET, { algorithms: ["HS256"] }) } catch { return null }
 }
 
 export const generateTotpSecret = () => authenticator.generateSecret()
