@@ -326,10 +326,10 @@
   .section-padding { padding: 72px 0; }
   .section-title { margin-bottom: 36px; }
   .ae-card-premium,
-  .ae-service-card { padding: 28px 20px; }
+  .ae-service-card { padding: 24px 18px; }
   .ae-card-premium .ae-card__icon,
   .ae-service-card .ae-card__icon,
-  .ae-service-card .ae-icon-box { width: 76px; height: 76px; font-size: 34px; }
+  .ae-service-card .ae-icon-box { width: 68px; height: 68px; font-size: 30px; }
   .ae-hero-simple { min-height: auto; padding: 86px 0 68px; }
   .ae-hero-simple.ae-hero--inner { padding: 62px 0 50px; }
   .ae-hero-simple h1 {
@@ -342,12 +342,36 @@
   }
   .ae-hero__pills { gap: 10px; margin-bottom: 28px; }
   .ae-hero__pill { font-size: 12.5px; padding: 8px 12px; }
+  .ae-slide-left,
+  .ae-slide-right,
+  .ae-zoom-in,
+  .ae-fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+  .ae-card-premium,
+  .ae-service-card {
+    transform: none !important;
+  }
+  .ae-card-premium::before {
+    transform: scaleX(1);
+  }
+  .ae-card-premium .ae-card__icon,
+  .ae-service-card .ae-card__icon,
+  .ae-service-card .ae-icon-box {
+    transform: none !important;
+    box-shadow: 0 10px 22px rgba(11, 42, 91, 0.14);
+  }
 }
 @media (max-width: 575px) {
   .section-padding { padding: 64px 0; }
   .ae-hero-simple { padding: 76px 0 58px; }
   .ae-hero-simple.ae-hero--inner { padding: 54px 0 42px; }
   .ae-hero__kicker { font-size: 0.76rem; padding: 7px 14px; }
+  .section-title h2 { font-size: 2rem; }
+  .section-title p { font-size: 1rem; }
 }
 
 @media (max-width: 991px) {

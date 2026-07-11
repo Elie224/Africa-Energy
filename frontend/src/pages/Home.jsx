@@ -190,13 +190,13 @@ const Home = () => {
               <Reveal effect="slide-left">
                 <WhyItem
                   icon='bi-graph-up-arrow'
-                  bg='linear-gradient(135deg, #1E5BB8, #0B2A5B)'
+                  color='linear-gradient(135deg, #1E5BB8, #0B2A5B)'
                   title={t('pages.home.why1Title')}
                   desc={t('pages.home.why1Desc')}
                 />
                 <WhyItem
                   icon='bi-file-earmark-check'
-                  bg='linear-gradient(135deg, #1E5BB8, #0B2A5B)'
+                  color='linear-gradient(135deg, #1E5BB8, #0B2A5B)'
                   title={t('pages.home.why2Title')}
                   desc={t('pages.home.why2Desc')}
                 />
