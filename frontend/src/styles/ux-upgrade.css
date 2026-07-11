@@ -227,7 +227,7 @@
 
 .ae-hero-simple {
   position: relative;
-  padding: 118px 0 96px;
+  padding: 104px 0 88px;
   min-height: min(92vh, 840px);
   display: flex;
   align-items: center;
@@ -240,61 +240,77 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 18% 22%, rgba(243, 146, 0, 0.24) 0%, transparent 32%),
-    radial-gradient(circle at 78% 22%, rgba(255, 255, 255, 0.10) 0%, transparent 28%),
-    radial-gradient(circle at 82% 76%, rgba(30, 91, 184, 0.42) 0%, transparent 30%);
+    radial-gradient(circle at 18% 20%, rgba(243, 146, 0, 0.18) 0%, transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 24%),
+    radial-gradient(circle at 76% 74%, rgba(30, 91, 184, 0.30) 0%, transparent 28%),
+    linear-gradient(180deg, rgba(4, 22, 58, 0.12) 0%, rgba(4, 22, 58, 0) 22%);
   pointer-events: none;
 }
+.ae-hero-content {
+  max-width: 1120px;
+  margin: 0 auto;
+}
 .ae-hero-simple h1 {
-  font-size: clamp(1.85rem, 4vw, 3.4rem);
+  max-width: 12ch;
+  margin: 0 auto 20px;
+  font-size: clamp(2.4rem, 5vw, 5rem);
   font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 18px;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
   color: #fff;
+  text-wrap: balance;
 }
 .ae-hero-simple h1 .highlight { color: var(--ae-orange); }
 .ae-hero-simple .ae-hero__subtitle {
-  font-size: clamp(1rem, 1.4vw, 1.2rem);
-  color: rgba(255, 255, 255, 0.92);
-  max-width: 720px;
-  margin: 0 auto 28px;
+  font-size: clamp(1.05rem, 1.55vw, 1.38rem);
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 820px;
+  margin: 0 auto 32px;
+  line-height: 1.58;
+  text-wrap: balance;
 }
 .ae-hero__pills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  margin: 22px 0 30px;
+  gap: 12px;
+  max-width: 920px;
+  margin: 0 auto 34px;
 }
 .ae-hero__pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.08) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   color: #fff;
-  padding: 8px 16px;
+  padding: 10px 18px;
   border-radius: 9999px;
-  font-size: 13.5px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transition: background 0.25s ease, transform 0.25s ease;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
 }
 .ae-hero__pill i { color: var(--ae-orange); }
-.ae-hero__pill:hover { background: rgba(255, 255, 255, 0.18); transform: translateY(-2px); }
+.ae-hero__pill:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.24);
+  transform: translateY(-2px);
+}
 .ae-hero__kicker {
-  background: rgba(243, 146, 0, 0.18);
-  border: 1px solid rgba(243, 146, 0, 0.45);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff !important;
-  padding: 6px 14px;
+  padding: 8px 18px;
   border-radius: 9999px;
-  font-size: 12px;
+  font-size: 0.88rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.1px;
   text-transform: uppercase;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
 /* ---------- 6. COMPTEUR ANIMÉ STATS ---------- */
@@ -314,15 +330,24 @@
   .ae-card-premium .ae-card__icon,
   .ae-service-card .ae-card__icon,
   .ae-service-card .ae-icon-box { width: 76px; height: 76px; font-size: 34px; }
-  .ae-hero-simple { min-height: auto; padding: 84px 0 64px; }
+  .ae-hero-simple { min-height: auto; padding: 86px 0 68px; }
   .ae-hero-simple.ae-hero--inner { padding: 62px 0 50px; }
-  .ae-hero__pills { gap: 8px; }
-  .ae-hero__pill { font-size: 12.5px; padding: 7px 12px; }
+  .ae-hero-simple h1 {
+    max-width: 11ch;
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+  .ae-hero-simple .ae-hero__subtitle {
+    font-size: 1rem;
+    max-width: 34ch;
+  }
+  .ae-hero__pills { gap: 10px; margin-bottom: 28px; }
+  .ae-hero__pill { font-size: 12.5px; padding: 8px 12px; }
 }
 @media (max-width: 575px) {
   .section-padding { padding: 64px 0; }
-  .ae-hero-simple { padding: 74px 0 56px; }
+  .ae-hero-simple { padding: 76px 0 58px; }
   .ae-hero-simple.ae-hero--inner { padding: 54px 0 42px; }
+  .ae-hero__kicker { font-size: 0.76rem; padding: 7px 14px; }
 }
 
 @media (max-width: 991px) {

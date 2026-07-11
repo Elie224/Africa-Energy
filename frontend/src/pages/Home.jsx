@@ -58,44 +58,46 @@ const Home = () => {
         <div className='ae-hero-spotlight' aria-hidden='true'></div>
         <div className='container'>
           <div className='row align-items-center'>
-            <div className='col-lg-9 text-center mx-auto'>
+            <div className='col-lg-10 text-center mx-auto'>
+              <div className='ae-hero-content'>
               <span className='badge mb-3 px-3 py-2 ae-hero__kicker'>
                 <i className='bi bi-fuel-pump me-2' aria-hidden='true'></i>{t('pages.home.heroBadge')}
               </span>
-              <h1>
-                {t('pages.home.heroTitle')} <span className="highlight">{t('pages.home.heroHighlight')}</span> {t('pages.home.heroTail')}
-              </h1>
-              <p className='ae-hero__subtitle'>
-                {t('pages.home.heroSubtitle')}
-              </p>
+                <h1>
+                  {t('pages.home.heroTitle')} <span className="highlight">{t('pages.home.heroHighlight')}</span> {t('pages.home.heroTail')}
+                </h1>
+                <p className='ae-hero__subtitle'>
+                  {t('pages.home.heroSubtitle')}
+                </p>
 
-              <Reveal effect="fade-up" delay={120}>
-                <div className='ae-hero__pills' role='list'>
-                  <span className='ae-hero__pill' role='listitem'>
-                    <i className='bi bi-truck' aria-hidden='true'></i>{t('pages.home.heroPill1')}
-                  </span>
-                  <span className='ae-hero__pill' role='listitem'>
-                    <i className='bi bi-patch-check-fill' aria-hidden='true'></i>{t('pages.home.heroPill2')}
-                  </span>
-                  <span className='ae-hero__pill' role='listitem'>
-                    <i className='bi bi-buildings' aria-hidden='true'></i>{t('pages.home.heroPill3')}
-                  </span>
-                  <span className='ae-hero__pill' role='listitem'>
-                    <i className='bi bi-geo-alt-fill' aria-hidden='true'></i>{t('pages.home.heroPill4')}
-                  </span>
-                </div>
-              </Reveal>
+                <Reveal effect="fade-up" delay={120}>
+                  <div className='ae-hero__pills' role='list'>
+                    <span className='ae-hero__pill' role='listitem'>
+                      <i className='bi bi-truck' aria-hidden='true'></i>{t('pages.home.heroPill1')}
+                    </span>
+                    <span className='ae-hero__pill' role='listitem'>
+                      <i className='bi bi-patch-check-fill' aria-hidden='true'></i>{t('pages.home.heroPill2')}
+                    </span>
+                    <span className='ae-hero__pill' role='listitem'>
+                      <i className='bi bi-buildings' aria-hidden='true'></i>{t('pages.home.heroPill3')}
+                    </span>
+                    <span className='ae-hero__pill' role='listitem'>
+                      <i className='bi bi-geo-alt-fill' aria-hidden='true'></i>{t('pages.home.heroPill4')}
+                    </span>
+                  </div>
+                </Reveal>
 
-              <Reveal effect="zoom-in" delay={240}>
-                <div className='d-flex gap-3 flex-wrap justify-content-center mt-2'>
-                  <Link to='/contact' className='btn btn-ae-primary btn-lg'>
-                    <i className='bi bi-envelope-paper me-2' aria-hidden='true'></i>{t('pages.home.ctaQuote')}
-                  </Link>
-                  <Link to='/a-propos' className='btn btn-ae-outline-light btn-lg'>
-                    {t('pages.home.ctaDiscover')} <i className='bi bi-arrow-right ms-2' aria-hidden='true'></i>
-                  </Link>
-                </div>
-              </Reveal>
+                <Reveal effect="zoom-in" delay={240}>
+                  <div className='d-flex gap-3 flex-wrap justify-content-center mt-2'>
+                    <Link to='/contact' className='btn btn-ae-primary btn-lg'>
+                      <i className='bi bi-envelope-paper me-2' aria-hidden='true'></i>{t('pages.home.ctaQuote')}
+                    </Link>
+                    <Link to='/a-propos' className='btn btn-ae-outline-light btn-lg'>
+                      {t('pages.home.ctaDiscover')} <i className='bi bi-arrow-right ms-2' aria-hidden='true'></i>
+                    </Link>
+                  </div>
+                </Reveal>
+              </div>
             </div>
           </div>
         </div>
