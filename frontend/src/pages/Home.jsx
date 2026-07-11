@@ -57,8 +57,8 @@ const Home = () => {
       <section className='ae-hero-simple'>
         <div className='ae-hero-spotlight' aria-hidden='true'></div>
         <div className='container'>
-          <div className='row align-items-center g-5'>
-            <div className='col-lg-7 text-center text-lg-start'>
+          <div className='row align-items-center'>
+            <div className='col-lg-9 text-center mx-auto'>
               <span className='badge mb-3 px-3 py-2 ae-hero__kicker'>
                 <i className='bi bi-fuel-pump me-2' aria-hidden='true'></i>{t('pages.home.heroBadge')}
               </span>
@@ -70,7 +70,7 @@ const Home = () => {
               </p>
 
               <Reveal effect="fade-up" delay={120}>
-                <div className='ae-hero__pills ae-hero__pills--start' role='list'>
+                <div className='ae-hero__pills' role='list'>
                   <span className='ae-hero__pill' role='listitem'>
                     <i className='bi bi-truck' aria-hidden='true'></i>{t('pages.home.heroPill1')}
                   </span>
@@ -87,50 +87,13 @@ const Home = () => {
               </Reveal>
 
               <Reveal effect="zoom-in" delay={240}>
-                <div className='ae-hero__actions'>
+                <div className='d-flex gap-3 flex-wrap justify-content-center mt-2'>
                   <Link to='/contact' className='btn btn-ae-primary btn-lg'>
                     <i className='bi bi-envelope-paper me-2' aria-hidden='true'></i>{t('pages.home.ctaQuote')}
                   </Link>
                   <Link to='/a-propos' className='btn btn-ae-outline-light btn-lg'>
                     {t('pages.home.ctaDiscover')} <i className='bi bi-arrow-right ms-2' aria-hidden='true'></i>
                   </Link>
-                </div>
-              </Reveal>
-            </div>
-
-            <div className='col-lg-5'>
-              <Reveal effect="slide-right">
-                <div className='ae-hero-panel'>
-                  <div className='ae-hero-panel__top'>
-                    <div>
-                      <span className='ae-hero-panel__eyebrow'>{t('pages.home.sectionTagForces')}</span>
-                      <h3>{t('pages.home.offerTitle')}</h3>
-                    </div>
-                    <div className='ae-hero-panel__seal'>24/7</div>
-                  </div>
-
-                  <div className='ae-hero-panel__grid'>
-                    <div className='ae-hero-metric'>
-                      <i className='bi bi-fuel-pump-fill'></i>
-                      <strong>{t('pages.home.offer1Title')}</strong>
-                      <span>{t('pages.home.offer1Desc')}</span>
-                    </div>
-                    <div className='ae-hero-metric'>
-                      <i className='bi bi-truck-front-fill'></i>
-                      <strong>{t('pages.home.offer3Title')}</strong>
-                      <span>{t('pages.home.offer3Desc')}</span>
-                    </div>
-                    <div className='ae-hero-metric'>
-                      <i className='bi bi-shield-check'></i>
-                      <strong>{t('pages.home.why2Title')}</strong>
-                      <span>{t('pages.home.why2Desc')}</span>
-                    </div>
-                    <div className='ae-hero-metric'>
-                      <i className='bi bi-diagram-3-fill'></i>
-                      <strong>{t('pages.home.offer4Title')}</strong>
-                      <span>{t('pages.home.offer4Desc')}</span>
-                    </div>
-                  </div>
                 </div>
               </Reveal>
             </div>
