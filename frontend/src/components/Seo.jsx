@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useI18n } from '../i18n/I18nContext.jsx'
 
 const BASE_TITLE = 'Africa Energy SAU'
-const DEFAULT_OG_IMAGE = 'https://africaenergy.com/og-image.svg'
+const DEFAULT_OG_IMAGE = 'https://africa-energy.netlify.app/og-image.svg'
 
 const Seo = ({ title, description, keywords, ogImage, canonicalPath }) => {
   const { lang } = useI18n()

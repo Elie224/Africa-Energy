@@ -38,9 +38,25 @@ app.use(helmet({
   },
   crossOriginEmbedderPolicy: false
 }))
+// Whitelist des origines autorisees (CORS)
+const ALLOWED_ORIGINS = [
+  'https://africa-energy.netlify.app',
+  'https://africaenergy.com',
+  'https://www.africaenergy.com',
+  'http://localhost:5173',
+  'http://localhost:5174',
+  process.env.FRONTEND_ORIGIN
+].filter(Boolean)
+
 app.use(cors({
-  origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5174',
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  origin: (origin, cb) => {
+    // Pas d'origin (curl, server-to-server) -> autorise
+    if (!origin) return cb(null, true)
+    if (ALLOWED_ORIGINS.includes(origin)) return cb(null, true)
+    return cb(new Error('CORS: origine non autorisee: ' + origin))
+  },
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   credentials: false
 }))
 app.use(express.json({ limit: '50kb' }))

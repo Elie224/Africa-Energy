@@ -37,3 +37,7 @@ Thumbs.db
 "PROPOSITION COMMERCIALE.docx"
 "PROPOSITION COMMERCIALE.pdf"
 /PROPOSITION*
+
+# Fichiers de verrouillage Office (Word/Excel temporaires)
+~*
+
